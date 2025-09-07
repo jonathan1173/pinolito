@@ -1,0 +1,135 @@
+{
+  "Managua": {
+    "coords": [
+      12.1364,
+      -86.2514
+    ],
+    "descripcion": "Managua, capital de Nicaragua, combina historia reciente y modernidad a orillas del lago Xolotlán.",
+    "municipios": {
+      "Managua": {
+        "resena": "Centro político y económico del país. Reconstruida tras sismos del siglo XX.",
+        "lugares": [
+          "Malecón de Managua",
+          "Loma de Tiscapa",
+          "Puerto Salvador Allende"
+        ],
+        "platos": [
+          "Nacatamal",
+          "Vigorón",
+          "Quesillo"
+        ],
+        "flora": [
+          "Madroño",
+          "Sacuanjoche"
+        ],
+        "fauna": [
+          "Guardabarranco",
+          "Iguana verde"
+        ],
+        "dialectos": [
+          "Español nicaragüense (modismos managuas)"
+        ],
+        "celebraciones": [
+          {
+            "nombre": "Santo Domingo de Guzmán",
+            "fecha": "08-01",
+            "descripcion": "Fiestas patronales con procesiones populares (1 y 10 de agosto)."
+          },
+          {
+            "nombre": "Independencia de Centroamérica",
+            "fecha": "09-15",
+            "descripcion": "Conmemoración de 1821 con desfiles escolares."
+          }
+        ]
+      }
+    }
+  },
+  "León": {
+    "coords": [
+      12.4356,
+      -86.8797
+    ],
+    "descripcion": "León, antigua capital, cuna de la universidad más antigua del país y de gran tradición cultural y religiosa.",
+    "municipios": {
+      "León": {
+        "resena": "Ciudad colonial famosa por su catedral (Patrimonio de la Humanidad).",
+        "lugares": [
+          "Catedral de León",
+          "Ruinas de León Viejo",
+          "Museo de Rubén Darío"
+        ],
+        "platos": [
+          "Indio viejo",
+          "Chancho con yuca"
+        ],
+        "flora": [
+          "Ceiba",
+          "Caña de azúcar"
+        ],
+        "fauna": [
+          "Zanate",
+          "Garrobo"
+        ],
+        "dialectos": [
+          "Español nicaragüense (giros leoneses)"
+        ],
+        "celebraciones": [
+          {
+            "nombre": "La Gritería",
+            "fecha": "12-07",
+            "descripcion": "Tradición mariana: \"¿Quién causa tanta alegría?\""
+          },
+          {
+            "nombre": "La Purísima",
+            "fecha": "12-08",
+            "descripcion": "Fiesta de la Inmaculada Concepción."
+          }
+        ]
+      }
+    }
+  },
+  "Granada": {
+    "coords": [
+      11.9333,
+      -85.95
+    ],
+    "descripcion": "Granada, joya colonial a orillas del lago Cocibolca, arquitectura colorida y turismo cultural.",
+    "municipios": {
+      "Granada": {
+        "resena": "Una de las ciudades más antiguas del continente americano fundadas por españoles (siglo XVI).",
+        "lugares": [
+          "Parque Central",
+          "Isletas de Granada",
+          "Iglesia de La Merced"
+        ],
+        "platos": [
+          "Vigorón",
+          "Rondón (influencia caribeña)"
+        ],
+        "flora": [
+          "Cocotero",
+          "Sacuanjoche"
+        ],
+        "fauna": [
+          "Colibrí",
+          "Garza blanca"
+        ],
+        "dialectos": [
+          "Español nicaragüense (giros granadinos)"
+        ],
+        "celebraciones": [
+          {
+            "nombre": "Festival Internacional de Poesía",
+            "fecha": "02-20",
+            "descripcion": "Encuentro literario (fecha referencial para ejemplo)."
+          },
+          {
+            "nombre": "Semana Santa",
+            "fecha": "03-28",
+            "descripcion": "Procesiones tradicionales (fecha referencial para ejemplo)."
+          }
+        ]
+      }
+    }
+  }
+}
