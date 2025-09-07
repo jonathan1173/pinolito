@@ -18,8 +18,8 @@ export default function CiudadDetallePage() {
       imagen: "/leon-catedral-nicaragua-colonial.png",
       mapa: "/mapa-nicaragua-leon-ubicacion.png",
     },
-    Granada: {
-      nombre: "Granada",
+    Managua: {
+      nombre: "Managua",
       descripcion: "La Gran Sultana del Lago",
       imagen: "/granada-colonial-nicaragua-lago.png",
       mapa: "/mapa-nicaragua-granada-ubicacion.png",

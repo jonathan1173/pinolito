@@ -5,10 +5,6 @@ import {
   Heart,
   Calendar,
   ArrowRight,
-  Palette,
-  Music,
-  Utensils,
-  Camera,
   Sparkles,
 } from "lucide-react";
 
@@ -26,20 +22,7 @@ export default function ActividadesPage() {
       actividades: 23,
       participantes: 456,
       especialidades: ["Artesanías", "Música Folclórica", "Danza"],
-      icono: Palette,
       color: "from-orange-500 to-red-500",
-    },
-    {
-      id: "leon",
-      nombre: "León",
-      departamento: "León",
-      descripcion: "Muralismo y Arte Urbano",
-      imagen: "/leon-muralismo-arte-urbano-nicaragua.png",
-      actividades: 18,
-      participantes: 342,
-      especialidades: ["Arte Urbano", "Literatura", "Teatro"],
-      icono: Palette,
-      color: "from-blue-500 to-teal-500",
     },
     {
       id: "granada",
@@ -50,20 +33,7 @@ export default function ActividadesPage() {
       actividades: 31,
       participantes: 678,
       especialidades: ["Música", "Patrimonio", "Turismo Cultural"],
-      icono: Music,
       color: "from-purple-500 to-pink-500",
-    },
-    {
-      id: "san-juan-oriente",
-      nombre: "San Juan de Oriente",
-      departamento: "Masaya",
-      descripcion: "Cerámica y Artesanía",
-      imagen: "/san-juan-oriente-ceramica-artesania-nicaragua.png",
-      actividades: 12,
-      participantes: 189,
-      especialidades: ["Cerámica", "Artesanía", "Tradiciones"],
-      icono: Sparkles,
-      color: "from-green-500 to-emerald-500",
     },
     {
       id: "managua",
@@ -74,20 +44,7 @@ export default function ActividadesPage() {
       actividades: 45,
       participantes: 892,
       especialidades: ["Arte Contemporáneo", "Gastronomía", "Eventos"],
-      icono: Camera,
       color: "from-indigo-500 to-blue-500",
-    },
-    {
-      id: "esteli",
-      nombre: "Estelí",
-      departamento: "Estelí",
-      descripcion: "Cultura Cafetera y Tradiciones",
-      imagen: "/esteli-cultura-cafetera-tradiciones-nicaragua.png",
-      actividades: 16,
-      participantes: 234,
-      especialidades: ["Cultura Cafetera", "Artesanías", "Música"],
-      icono: Utensils,
-      color: "from-amber-500 to-orange-500",
     },
   ];
 
@@ -99,7 +56,7 @@ export default function ActividadesPage() {
   ];
 
   return (
-    <div >
+    <div>
       <Hero
         title="¡Sumérgete en la Cultura!"
         paragraph="Descubre la riqueza de Nicaragua con juegos que te harán aprender de forma divertida."
@@ -128,11 +85,6 @@ export default function ActividadesPage() {
                   <div
                     className={`absolute inset-0 bg-gradient-to-t ${ciudad.color} opacity-20 group-hover:opacity-30`}
                   />
-                  <div className="absolute top-4 right-4">
-                    <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
-                      <IconComponent className="w-5 h-5 text-blue-600" />
-                    </div>
-                  </div>
                 </div>
 
                 <div className="p-4">
@@ -175,8 +127,6 @@ export default function ActividadesPage() {
           })}
         </div>
       </section>
-
-
     </div>
   );
 }
