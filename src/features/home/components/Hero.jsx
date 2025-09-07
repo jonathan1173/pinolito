@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background Images con overlay suave */}
-      <div className="absolute inset-0 flex">
+      <div className="absolute inset-0 flex ">
         {/* Izquierda */}
         <motion.div
           className="w-1/2 relative overflow-hidden"
@@ -53,11 +53,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="block text-black">Descubre la riqueza de la</span>
-            <span
-              className="block text-blue-500 drop-shadow-lg"
-              style={{ WebkitTextStroke: "1px black" }}
-            >
+            <span className="block text-blue-900">
+              Descubre la riqueza de la
+            </span>
+            <span className="block text-white drop-shadow-lg">
               cultura nicaragüense
             </span>
           </h1>

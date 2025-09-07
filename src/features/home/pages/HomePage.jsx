@@ -8,8 +8,9 @@ import HorizontalScrollSection from '../components/scrollHorizontal';
 export default function HomePage() {
   return (
     <div>
-      <Hero />
+       <Hero />
       <Details />
+     
       <MapView />
       <HorizontalScrollSection/>
       <Vision />

@@ -206,12 +206,7 @@ export default function CultureSlider() {
                   }}
                 />
 
-                {/* Overlay dinámico */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-t ${currentSection.color} opacity-40`}
-                  animate={{ opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
+             
 
                 {/* Contenido */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-center px-4 sm:px-8 md:px-16">
