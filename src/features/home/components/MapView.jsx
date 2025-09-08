@@ -55,7 +55,7 @@ export default function MapView() {
                     {info.descripcion}
                   </p>
                   <Link
-                    to={`/actividades/${encodeURIComponent(dep)}`}
+                    to={`/department/${encodeURIComponent(dep)}`}
                     className="inline-block text-sm font-medium text-blue-600 hover:text-blue-800 transition"
                   >
                     ➝ Ver ficha completa

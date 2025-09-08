@@ -88,45 +88,46 @@
       }
     }
   },
-  "Granada": {
+  "Masaya": {
     "coords": [
-      11.9333,
-      -85.95
+      11.9667,
+      -86.1
     ],
-    "descripcion": "Granada, joya colonial a orillas del lago Cocibolca, arquitectura colorida y turismo cultural.",
+    "descripcion": "Masaya, conocida como la Capital del Folclore Nicaragüense, tradición artesanal, música y danzas.",
     "municipios": {
-      "Granada": {
-        "resena": "Una de las ciudades más antiguas del continente americano fundadas por españoles (siglo XVI).",
+      "Masaya": {
+        "resena": "Ciudad emblemática por su mercado de artesanías, el folclore y las fiestas populares.",
         "lugares": [
-          "Parque Central",
-          "Isletas de Granada",
-          "Iglesia de La Merced"
+          "Mercado de Artesanías",
+          "Mirador de Catarina",
+          "Volcán Masaya"
         ],
         "platos": [
-          "Vigorón",
-          "Rondón (influencia caribeña)"
+          "Nacatamal",
+          "Indio Viejo",
+          "Yoltamal con cuajada"
         ],
         "flora": [
-          "Cocotero",
+          "Madroño",
           "Sacuanjoche"
         ],
         "fauna": [
-          "Colibrí",
-          "Garza blanca"
+          "Murciélago frutero",
+          "Guacamaya roja"
         ],
         "dialectos": [
-          "Español nicaragüense (giros granadinos)"
+          "Español nicaragüense con expresiones populares"
         ],
         "celebraciones": [
           {
-            "nombre": "Festival Internacional de Poesía",
-            "fecha": "02-20",
-            "descripcion": "Encuentro literario (fecha referencial para ejemplo)."
+            "nombre": "Fiestas Patronales en honor a San Jerónimo",
+            "fecha": "09-30",
+            "descripcion": "Celebración folclórica con música, bailes y tradición popular (fecha referencial)."
           },
           {
-            "nombre": "Semana Santa",
-            "fecha": "03-28",
-            "descripcion": "Procesiones tradicionales (fecha referencial para ejemplo)."
+            "nombre": "Torovenado del Pueblo",
+            "fecha": "10-30",
+            "descripcion": "Desfile satírico y cultural lleno de color y máscaras tradicionales (fecha referencial)."
           }
         ]
       }

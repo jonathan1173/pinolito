@@ -14,7 +14,7 @@ import Hero from "../../../shared/components/Hero";
 export default function ActividadesPage() {
   const ciudadesCreativas = [
     {
-      id: "masaya",
+      id: "Masaya",
       nombre: "Masaya",
       departamento: "Masaya",
       descripcion: "Artesanía y Folclore",
@@ -25,7 +25,7 @@ export default function ActividadesPage() {
       color: "from-orange-500 to-red-500",
     },
     {
-      id: "granada",
+      id: "Granada",
       nombre: "Granada",
       departamento: "Granada",
       descripcion: "Música y Patrimonio",
@@ -36,7 +36,7 @@ export default function ActividadesPage() {
       color: "from-purple-500 to-pink-500",
     },
     {
-      id: "managua",
+      id: "Managua",
       nombre: "Managua",
       departamento: "Managua",
       descripcion: "Arte Contemporáneo y Cultura",
@@ -71,9 +71,9 @@ export default function ActividadesPage() {
           {ciudadesCreativas.map((ciudad) => {
             const IconComponent = ciudad.icono;
             return (
-              <a
+              <Link
                 key={ciudad.id}
-                href={`/actividades/${ciudad.id}`}
+                to={`/department/${ciudad.id}`}
                 className="group bg-white rounded-lg shadow hover:shadow-xl overflow-hidden transition-all hover:-translate-y-2"
               >
                 <div className="relative">
@@ -122,7 +122,7 @@ export default function ActividadesPage() {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>

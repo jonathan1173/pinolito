@@ -8,7 +8,7 @@ export function Navbar() {
 
   const links = [
     { to: "/", label: "Inicio", icon: <Home size={18} /> },
-    { to: "/activity", label: "Actividades", icon: <Calendar size={18} /> },
+    { to: "/department", label: "Departamentos", icon: <Calendar size={18} /> },
     { to: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
   ];
 

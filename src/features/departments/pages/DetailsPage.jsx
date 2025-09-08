@@ -5,42 +5,60 @@ import { ArrowLeft, MapPin, Users, Calendar, TrendingUp, Award } from "lucide-re
 export default function CiudadDetallePage() {
   const { ciudad } = useParams()
 
-  const ciudadData = {
-    masaya: {
+  // Toda la info unificada
+  const ciudades = {
+    Masaya: {
       nombre: "Masaya",
       descripcion: "Capital del Folclore Nicaragüense",
       imagen: "/masaya-panoramica-artesania-nicaragua.png",
       mapa: "/mapa-nicaragua-masaya-ubicacion.png",
-    },
-    Leon: {
-      nombre: "León",
-      descripcion: "Cuna de Poetas y Revolucionarios",
-      imagen: "/leon-catedral-nicaragua-colonial.png",
-      mapa: "/mapa-nicaragua-leon-ubicacion.png",
+      datosculturales: {
+        arte: 85,
+        artesania: 92,
+        literatura: 67,
+        danza: 78,
+        musica: 88,
+      },
+      actividades: [
+        { titulo: "Festival de Marimba", fecha: "15 Mar 2024", participantes: 120, categoria: "Música" },
+        { titulo: "Taller de Cerámica", fecha: "22 Mar 2024", participantes: 35, categoria: "Artesanías" },
+        { titulo: "Exposición Fotográfica", fecha: "5 Abr 2024", participantes: 67, categoria: "Arte Visual" },
+      ],
+      reconocimientos: [
+        "🏆 Ciudad Creativa UNESCO",
+        "🎨 Capital del Folclore Nacional",
+        "🌟 Patrimonio Cultural Vivo",
+      ],
+      stats: {
+        municipios: 12,
+        participantes: "2.4K",
+      },
     },
     Managua: {
       nombre: "Managua",
       descripcion: "La Gran Sultana del Lago",
       imagen: "/granada-colonial-nicaragua-lago.png",
       mapa: "/mapa-nicaragua-granada-ubicacion.png",
+      datosculturales: {
+        arte: 70,
+        artesania: 60,
+        literatura: 80,
+        danza: 75,
+        musica: 85,
+      },
+      actividades: [
+        { titulo: "Feria Gastronómica", fecha: "10 Ene 2024", participantes: 300, categoria: "Gastronomía" },
+        { titulo: "Concierto Sinfónico", fecha: "20 Feb 2024", participantes: 150, categoria: "Música" },
+      ],
+      reconocimientos: ["🏆 Centro Cultural Nacional", "🎭 Capital del Arte Contemporáneo"],
+      stats: {
+        municipios: 10,
+        participantes: "3.1K",
+      },
     },
   }
 
-  const ciudadSeleccionada = ciudadData[ciudad]
-
-  const datosculturales = {
-    arte: 85,
-    artesania: 92,
-    literatura: 67,
-    danza: 78,
-    musica: 88,
-  }
-
-  const actividades = [
-    { titulo: "Festival de Marimba", fecha: "15 Mar 2024", participantes: 120, categoria: "Música" },
-    { titulo: "Taller de Cerámica", fecha: "22 Mar 2024", participantes: 35, categoria: "Artesanías" },
-    { titulo: "Exposición Fotográfica", fecha: "5 Abr 2024", participantes: 67, categoria: "Arte Visual" },
-  ]
+  const ciudadSeleccionada = ciudades[ciudad]
 
   // si la ciudad no existe mostramos error
   if (!ciudadSeleccionada) {
@@ -51,7 +69,7 @@ export default function CiudadDetallePage() {
           El municipio que buscas no está disponible en nuestra base de datos.
         </p>
         <Link
-          to="/activity"
+          to="/department"
           className="flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
           <ArrowLeft className="w-4 h-4 mr-2" /> Volver a Ciudades
@@ -73,7 +91,7 @@ export default function CiudadDetallePage() {
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <Link
-              to="/activity"
+              to="/department"
               className="flex items-center mb-6 px-4 py-2 bg-white/90 rounded-md shadow hover:bg-white"
             >
               <ArrowLeft className="w-4 h-4 mr-2" /> Volver a Ciudades
@@ -129,7 +147,7 @@ export default function CiudadDetallePage() {
               </svg>
             </div>
             <div className="grid grid-cols-5 gap-2 mt-6 text-center">
-              {Object.entries(datosculturales).map(([cat, val]) => (
+              {Object.entries(ciudadSeleccionada.datosculturales).map(([cat, val]) => (
                 <div key={cat}>
                   <div className="text-2xl font-bold text-blue-600">{val}%</div>
                   <div className="text-xs text-gray-600 capitalize">{cat}</div>
@@ -147,7 +165,7 @@ export default function CiudadDetallePage() {
               <img
                 src={ciudadSeleccionada.mapa || "/placeholder.svg"}
                 alt={`Mapa de ${ciudadSeleccionada.nombre}`}
-                className="w-full h-48 object-cover rounded-lg mb-4"
+                className="w-full h-48 object-cover rounded-lg mb-4 bg-blue-500"
               />
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
@@ -175,12 +193,13 @@ export default function CiudadDetallePage() {
         </div>
       </section>
 
+
       {/* Recent Activities */}
       <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-8">Actividades Recientes</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {actividades.map((act, idx) => (
+            {ciudadSeleccionada.actividades.map((act, idx) => (
               <div key={idx} className="bg-white rounded-lg shadow p-4">
                 <h3 className="text-lg font-bold mb-2">{act.titulo}</h3>
                 <div className="flex items-center space-x-4 text-sm text-gray-600 mb-2">
