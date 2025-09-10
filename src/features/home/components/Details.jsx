@@ -7,10 +7,9 @@ const cultureSections = [
     title: "Montañas y Paisajes",
     description:
       "Nicaragua es un país montañoso con volcanes, lagos y reservas naturales que forman paisajes únicos.",
-    image:
-      "./volcan-concepcion-2022.jpg",
+    image: "./volcan-concepcion-2022.jpg",
     icon: Mountain,
-    color: "from-amber-700 via-amber-500 to-amber-400",
+    color: "from-amber-700 via-amber-500 to-amber-400", // 🌄 Paisajes → Ámbares
     solid: "bg-amber-600",
     titleColor: "text-amber-900",
     textColor: "text-amber-800",
@@ -20,10 +19,9 @@ const cultureSections = [
     title: "Flora y Fauna",
     description:
       "Su biodiversidad incluye bosques tropicales, ríos y especies endémicas que muestran la riqueza natural del país.",
-    image:
-      "./flora-fauna.jpg",
+    image: "./flora-fauna.jpg",
     icon: Leaf,
-    color: "from-lime-700 via-lime-500 to-lime-400",
+    color: "from-lime-700 via-lime-500 to-lime-400", // 🌿 Flora → Verdes
     solid: "bg-lime-600",
     titleColor: "text-lime-900",
     textColor: "text-lime-800",
@@ -34,26 +32,24 @@ const cultureSections = [
     description:
       "Platos tradicionales como el gallo pinto, vigorón y quesillo reflejan la cultura y los sabores locales.",
     icon: Utensils,
-    color: "from-yellow-700 via-orange-500 to-amber-400",
+    color: "from-yellow-700 via-orange-500 to-amber-400", // 🍲 Gastronomía → Amarillo/Naranja
     solid: "bg-amber-500",
     titleColor: "text-yellow-900",
     textColor: "text-yellow-800",
     stats: "100+ platos típicos",
-    image:
-      "gastronomia-nicaraguense.jpg",
+    image: "gastronomia-nicaraguense.jpg",
   },
   {
     title: "Música y Artesanía",
     description:
       "La música folclórica, danzas tradicionales y artesanías reflejan la creatividad y la historia del pueblo nicaragüense.",
     icon: Music,
-    color: "from-blue-700 via-blue-500 to-blue-400",
+    color: "from-blue-700 via-blue-500 to-blue-400", // 🎶 Música → Azules
     solid: "bg-blue-600",
     titleColor: "text-blue-900",
     textColor: "text-blue-800",
     stats: "50+ danzas folclóricas",
-    image:
-      "./musica-y-artesania.jpg",
+    image: "./musica-y-artesania.jpg",
   },
 ];
 

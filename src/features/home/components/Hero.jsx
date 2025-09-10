@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -72,7 +72,7 @@ export default function Hero() {
           {/* Botón principal */}
           <Link
             to="/games"
-            className="group relative overflow-hidden bg-blue-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-[#FAB036]/60 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
+            className="group relative overflow-hidden bg-blue-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-blue-400 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               <Play className="w-5 h-5" />
@@ -84,7 +84,7 @@ export default function Hero() {
           {/* Botón secundario */}
           <Link
             to="/activity"
-            className="group relative overflow-hidden bg-[#5A7A0A] text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-[#83D350] hover:text-[#513C2F] transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
+            className="group relative overflow-hidden bg-lime-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-lime-400 hover:text-stone-800 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               Ver Actividades
