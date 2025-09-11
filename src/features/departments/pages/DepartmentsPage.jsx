@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import Hero from "../../../shared/components/Hero";
 
-export default function ActividadesPage() {
+export default function DepartmentsPage() {
   const ciudadesCreativas = [
     {
       id: "Masaya",
@@ -20,9 +20,7 @@ export default function ActividadesPage() {
       descripcion: "Artesanía y Folclore",
       imagen: "/masaya-artesania-folclore-nicaragua.png",
       actividades: 23,
-      participantes: 456,
       especialidades: ["Artesanías", "Música Folclórica", "Danza"],
-      color: "from-orange-500 to-red-500",
     },
     {
       id: "Granada",
@@ -31,9 +29,7 @@ export default function ActividadesPage() {
       descripcion: "Música y Patrimonio",
       imagen: "/granada-musica-patrimonio-nicaragua-colonial.png",
       actividades: 31,
-      participantes: 678,
       especialidades: ["Música", "Patrimonio", "Turismo Cultural"],
-      color: "from-purple-500 to-pink-500",
     },
     {
       id: "Managua",
@@ -42,18 +38,12 @@ export default function ActividadesPage() {
       descripcion: "Arte Contemporáneo y Cultura",
       imagen: "/managua-arte-contemporaneo-cultura-nicaragua.png",
       actividades: 45,
-      participantes: 892,
       especialidades: ["Arte Contemporáneo", "Gastronomía", "Eventos"],
-      color: "from-indigo-500 to-blue-500",
     },
   ];
 
-  const stats = [
-    { numero: "18", label: "Departamentos", icono: MapPin },
-    { numero: "145", label: "Ciudades Activas", icono: Sparkles },
-    { numero: "2,847", label: "Participantes", icono: Users },
-    { numero: "156", label: "Actividades Mensuales", icono: Heart },
-  ];
+  // Color uniforme para todas las ciudades
+  const colorUniforme = "from-green-500 to-green-700";
 
   return (
     <div>
@@ -69,7 +59,6 @@ export default function ActividadesPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ciudadesCreativas.map((ciudad) => {
-            const IconComponent = ciudad.icono;
             return (
               <Link
                 key={ciudad.id}
@@ -83,7 +72,7 @@ export default function ActividadesPage() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                   />
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t ${ciudad.color} opacity-20 group-hover:opacity-30`}
+                    className={`absolute inset-0 bg-gradient-to-t ${colorUniforme} opacity-20 group-hover:opacity-30`}
                   />
                 </div>
 
@@ -103,10 +92,6 @@ export default function ActividadesPage() {
                       <span className="flex items-center">
                         <Sparkles className="w-4 h-4 mr-1" />{" "}
                         {ciudad.actividades} actividades
-                      </span>
-                      <span className="flex items-center">
-                        <Users className="w-4 h-4 mr-1" />{" "}
-                        {ciudad.participantes}
                       </span>
                     </div>
 
