@@ -53,9 +53,13 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="block text-blue-900">
+            <span
+              className="block text-blue-600"
+              style={{ textShadow: "2px 2px 4px white" }}
+            >
               Descubre la riqueza de la
             </span>
+
             <span className="block text-white drop-shadow-lg">
               cultura nicaragüense
             </span>
