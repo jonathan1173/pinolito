@@ -1,99 +1,98 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import {
-  ArrowLeft,
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import RecentActivities from "../components/RecentActivities";
 import HeaderDepartements from "../components/HeaderDepartaments";
 import PerfilCultural from "../components/ProfileCultural";
 import DepartmentsLogos from "../components/DepartmentsLogos";
+import axios from "axios";
 
 export default function CiudadDetallePage() {
-  const { ciudad } = useParams();
+  const { ciudad } = useParams(); // aquí ciudad es el id
+  const [ciudadSeleccionada, setCiudadSeleccionada] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const ciudades = {
-    Masaya: {
-      nombre: "Masaya",
-      descripcion: "Capital del Folclore Nicaragüense",
-      imagen: "/iglesia.jpg",
-      mapa: "/mapa-nicaragua-masaya-ubicacion.png",
-      datosculturales: {
-        arte: 85,
-        artesania: 92,
-        literatura: 67,
-        danza: 78,
-        musica: 88,
-      },
-      actividades: [
-        {
-          titulo: "Festival de Marimba",
-          fecha: "15 Mar 2024",
-          participantes: 120,
-          categoria: "Música",
-        },
-        {
-          titulo: "Taller de Cerámica",
-          fecha: "22 Mar 2024",
-          participantes: 35,
-          categoria: "Artesanías",
-        },
-        {
-          titulo: "Exposición Fotográfica",
-          fecha: "5 Abr 2024",
-          participantes: 67,
-          categoria: "Arte Visual",
-        },
-      ],
-      reconocimientos: [
-        "🏆 Ciudad Creativa UNESCO",
-        "🎨 Capital del Folclore Nacional",
-        "🌟 Patrimonio Cultural Vivo",
-      ],
-      stats: {
-        municipios: 12,
-        participantes: "2.4K",
-      },
-    },
-    Managua: {
-      nombre: "Managua",
-      descripcion: "La Gran Sultana del Lago",
-      imagen: "/volcan-concepcion-2022.jpg",
-      mapa: "/mapa-nicaragua-granada-ubicacion.png",
-      datosculturales: {
-        arte: 70,
-        artesania: 60,
-        literatura: 80,
-        danza: 75,
-        musica: 85,
-      },
-      actividades: [
-        {
-          titulo: "Feria Gastronómica",
-          fecha: "10 Ene 2024",
-          participantes: 300,
-          categoria: "Gastronomía",
-        },
-        {
-          titulo: "Concierto Sinfónico",
-          fecha: "20 Feb 2024",
-          participantes: 150,
-          categoria: "Música",
-        },
-      ],
-      reconocimientos: [
-        "🏆 Centro Cultural Nacional",
-        "🎭 Capital del Arte Contemporáneo",
-      ],
-      stats: {
-        municipios: 10,
-        participantes: "3.1K",
-      },
-    },
-  };
+  useEffect(() => {
+    async function fetchCiudad() {
+      try {
+        // 1. Datos básicos del departamento
+        const depRes = await axios.get(
+          `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/departamentos?select=id,nombre,descripcion,imagen,mapa&id=eq.${ciudad}`,
+          {
+            headers: {
+              apikey: import.meta.env.VITE_SUPABASE_KEY,
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
+            },
+          }
+        );
 
-  const ciudadSeleccionada = ciudades[ciudad];
+        const dep = depRes.data[0];
+        if (!dep) {
+          setCiudadSeleccionada(null);
+          setLoading(false);
+          return;
+        }
 
-  // si la ciudad no existe mostramos error
+        const depId = dep.id;
+
+        // 2. Datos culturales
+        const datosCulturalesRes = await axios.get(
+          `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/datos_culturales?select=arte,artesania,literatura,danza,musica&departamento_id=eq.${depId}`,
+          {
+            headers: {
+              apikey: import.meta.env.VITE_SUPABASE_KEY,
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
+            },
+          }
+        );
+        const datosculturales = datosCulturalesRes.data[0] || {};
+
+        // 3. Actividades
+        const actividadesRes = await axios.get(
+          `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/actividades?select=titulo,fecha,participantes,categoria&departamento_id=eq.${depId}`,
+          {
+            headers: {
+              apikey: import.meta.env.VITE_SUPABASE_KEY,
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
+            },
+          }
+        );
+        const actividades = actividadesRes.data || [];
+
+        // 4. Reconocimientos
+        const reconocimientosRes = await axios.get(
+          `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/reconocimientos?select=nombre&departamento_id=eq.${depId}`,
+          {
+            headers: {
+              apikey: import.meta.env.VITE_SUPABASE_KEY,
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
+            },
+          }
+        );
+        const reconocimientos = reconocimientosRes.data.map((r) => r.nombre);
+
+        setCiudadSeleccionada({
+          ...dep,
+          datosculturales,
+          actividades,
+          reconocimientos,
+        });
+      } catch (error) {
+        console.error("Error al cargar la ciudad:", error);
+        setCiudadSeleccionada(null);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchCiudad();
+  }, [ciudad]);
+
+  if (loading)
+    return (
+      <p className="text-center py-16 text-3xl">Cargando ciudad...</p>
+    );
+
   if (!ciudadSeleccionada) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
@@ -117,18 +116,14 @@ export default function CiudadDetallePage() {
     <div className="min-h-screen bg-gray-50">
       <HeaderDepartements department={ciudadSeleccionada} />
 
-      {/* Cultural Analytics */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Radar Chart Mockup */}
-
           <PerfilCultural data={ciudadSeleccionada.datosculturales} />
-
           <DepartmentsLogos ciudad={ciudadSeleccionada} />
         </div>
       </section>
 
-      <RecentActivities />
+      <RecentActivities actividades={ciudadSeleccionada.actividades} />
     </div>
   );
 }

@@ -8,7 +8,6 @@ export default function DepartmentsPage() {
   const [ciudadesCreativas, setCiudadesCreativas] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Color uniforme para todas las ciudades
   const colorUniforme = "from-green-500 to-green-700";
 
   useEffect(() => {
@@ -32,7 +31,12 @@ export default function DepartmentsPage() {
     fetchDepartamentos();
   }, []);
 
-  if (loading) return <p className="h-screen flex items-center justify-center text-6xl">Cargando departamentos...</p>;
+  if (loading)
+    return (
+      <p className="h-screen flex items-center justify-center text-6xl">
+        Cargando departamentos...
+      </p>
+    );
 
   return (
     <div>
@@ -44,13 +48,12 @@ export default function DepartmentsPage() {
         Icon={Calendar}
       />
 
-      {/* Grid de Ciudades */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ciudadesCreativas.map((ciudad) => (
             <Link
               key={ciudad.id}
-              to={`/department/${ciudad.id}`}
+              to={`/department/${ciudad.id}`} // usamos id en la URL
               className="group bg-white rounded-lg shadow hover:shadow-xl overflow-hidden transition-all hover:-translate-y-2"
             >
               <div className="relative">
@@ -77,8 +80,7 @@ export default function DepartmentsPage() {
                 <div className="mt-4">
                   <div className="flex items-center space-x-4 text-sm text-gray-600">
                     <span className="flex items-center">
-                      <Sparkles className="w-4 h-4 mr-1" />{" "}
-                      {ciudad.actividades || 0} actividades
+                      <Sparkles className="w-4 h-4 mr-1" /> 0 actividades
                     </span>
                   </div>
                 </div>
