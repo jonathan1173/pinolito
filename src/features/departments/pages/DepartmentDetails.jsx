@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import DepartmentHero from "../components/DepartamentHero";
+import DepartmentSkills from "../components/DepartmentSkills";
 
 export default function DepartmentDetails() {
   const { ciudad } = useParams();
@@ -89,7 +90,10 @@ export default function DepartmentDetails() {
           </p>
         </div>
       </section>
-      
+
+      <section className="max-w-4xl mx-auto px-6 py-12 space-y-6">
+        <DepartmentSkills departamentoId={departamento.id} />
+      </section>
     </div>
   );
 }
