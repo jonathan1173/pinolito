@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background Images con overlay suave */}
-      <div className="absolute inset-0 flex ">
+      <div className="absolute inset-0 flex  ">
         {/* Izquierda */}
         <motion.div
           className="w-1/2 relative overflow-hidden"
@@ -22,7 +22,7 @@ export default function Hero() {
               backgroundPosition: "left",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-black/50 " />
         </motion.div>
 
         {/* Derecha */}
@@ -40,7 +40,7 @@ export default function Hero() {
               backgroundPosition: "right",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/30 to-transparent" />
+          <div className="absolute inset-0  bg-black/50 " />
         </motion.div>
       </div>
 
@@ -54,8 +54,7 @@ export default function Hero() {
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
             <span
-              className="block text-blue-600"
-              style={{ textShadow: "2px 2px 4px white" }}
+              className="block text-white"
             >
               Descubre la riqueza de la
             </span>
