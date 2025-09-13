@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage } from "./features/home";
 import { GamePage } from "./features/games";
-import { DepartmentsPage , DetailsPage , CalendarPage } from "./features/departments";
+import { DepartmentsPage , DepartmentsDetails , CalendarPage } from "./features/departments";
 
 import { Navbar } from "./shared/components/NavBar";
 
@@ -16,7 +16,7 @@ export default function App() {
           <Route path="/games" element={<GamePage />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/department" element={<DepartmentsPage />} />
-          <Route path="/department/:ciudad" element={<DetailsPage />} />
+          <Route path="/department/:ciudad" element={<DepartmentsDetails />} />
         </Routes>
       </>
     </Router>

@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   Radar,
   RadarChart,
@@ -7,8 +9,38 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function PerfilCultural({ data }) {
-  // Convertimos datos en arreglo para Recharts
+function DepartmentSkills({ departamentoId }) {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchCulturalData() {
+      try {
+        const url = `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/datos_culturales?select=arte,artesania,literatura,danza,musica&departamento_id=eq.${departamentoId}`;
+        const { data: res } = await axios.get(url, {
+          headers: {
+            apikey: import.meta.env.VITE_SUPABASE_KEY,
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
+          },
+        });
+        setData(res[0] || {});
+      } catch (error) {
+        console.error("Error al cargar datos culturales:", error);
+        setData({});
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (departamentoId) {
+      fetchCulturalData();
+    }
+  }, [departamentoId]);
+
+  if (loading)
+    return <p className="text-center py-6">Cargando perfil cultural...</p>;
+
+  // Convertimos los datos en arreglo para Recharts
   const chartData = Object.entries(data).map(([cat, val]) => ({
     category: cat,
     value: val,
@@ -40,4 +72,4 @@ function PerfilCultural({ data }) {
   );
 }
 
-export default PerfilCultural;
+export default DepartmentSkills;

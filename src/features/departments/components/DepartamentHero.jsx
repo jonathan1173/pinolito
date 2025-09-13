@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
-export default function HeaderDepartements({ department }) {
+export default function DepartementHero({ department }) {
   return (
     <section className="relative">
       <img
@@ -21,7 +21,7 @@ export default function HeaderDepartements({ department }) {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             {department.nombre}
           </h1>
-          <p className="text-xl text-white/90 max-w-2xl">{department.descripcion}</p>
+          
         </div>
       </div>
     </section>

@@ -8,12 +8,14 @@ export default function DepartmentsPage() {
   const [ciudadesCreativas, setCiudadesCreativas] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const colorUniforme = "from-green-500 to-green-700";
 
   useEffect(() => {
     async function fetchDepartamentos() {
       try {
-        const url = `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/departamentos?select=id,nombre,descripcion,imagen`;
+        // traer también el slug
+        const url = `${
+          import.meta.env.VITE_SUPABASE_URL
+        }/rest/v1/departamentos?select=id,nombre,descripcion,imagen_url,slug`;
         const { data } = await axios.get(url, {
           headers: {
             apikey: import.meta.env.VITE_SUPABASE_KEY,
@@ -53,17 +55,17 @@ export default function DepartmentsPage() {
           {ciudadesCreativas.map((ciudad) => (
             <Link
               key={ciudad.id}
-              to={`/department/${ciudad.id}`} // usamos id en la URL
+              to={`/department/${ciudad.slug}`} // ahora usamos slug en la URL
               className="group bg-white rounded-lg shadow hover:shadow-xl overflow-hidden transition-all hover:-translate-y-2"
             >
               <div className="relative">
                 <img
                   src={ciudad.imagen}
-                  alt={`${ciudad.nombre} - ${ciudad.descripcion}`}
+                  alt={`${ciudad.nombre} `}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t ${colorUniforme} opacity-20 group-hover:opacity-30`}
+                  className={`absolute inset-0 bg-gradient-to-t from-gray-500 to-gray-700 opacity-20 group-hover:opacity-30`}
                 />
               </div>
 
@@ -73,7 +75,6 @@ export default function DepartmentsPage() {
                     <h2 className="text-xl font-bold group-hover:text-blue-600">
                       {ciudad.nombre}
                     </h2>
-                    <p className="text-gray-600">{ciudad.descripcion}</p>
                   </div>
                 </div>
 
