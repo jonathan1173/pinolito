@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import DepartmentHero from "../components/DepartamentHero";
 import DepartmentSkills from "../components/DepartmentSkills";
+import DepartmentsLogos from "../components/DepartmentsLogos";
 
 export default function DepartmentDetails() {
   const { ciudad } = useParams();
@@ -91,8 +92,19 @@ export default function DepartmentDetails() {
         </div>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 py-12 space-y-6">
-        <DepartmentSkills departamentoId={departamento.id} />
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Cada componente ocupa la mitad en pantallas medianas para arriba */}
+          <div className="w-full md:w-1/2">
+            <DepartmentSkills departamentoId={departamento.id} />
+          </div>
+          <div className="w-full md:w-1/2">
+            <DepartmentsLogos
+              ciudad={departamento}
+              departamentoId={departamento.id}
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
