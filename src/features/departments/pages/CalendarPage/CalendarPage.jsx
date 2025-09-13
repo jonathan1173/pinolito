@@ -7,12 +7,15 @@ import useEventos from "./hooks/useEventos";
 export default function CalendarPage() {
   const { eventos, loading, error } = useEventos();
   const [selectedEvents, setSelectedEvents] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  if (loading) return <p className="text-center py-16">Cargando eventos...</p>;
-  if (error) return <p className="text-center py-16">Error cargando eventos</p>;
+  const handleDateClick = (eventsOfTheDay, date) => {
+    setSelectedEvents(eventsOfTheDay);
+    setSelectedDate(date);
+  };
 
   return (
-    <div className="min-h-screen bg-red-500">
+    <div className="min-h-screen bg-red-600">
       <Hero
         title={
           <>
@@ -22,23 +25,26 @@ export default function CalendarPage() {
         paragraph="Mantente informado sobre festivales, celebraciones y eventos culturales en todo Nicaragua."
       />
 
-<section className="py-8 lg:py-16">
-  <div className="max-w-7xl mx-auto px-2 sm:px-4 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-    {/* Calendario */}
-    <div className="lg:col-span-2 bg-white p-4 sm:p-6 rounded-lg shadow">
-      <Calendario
-        eventos={eventos}
-        onDateClick={setSelectedEvents}
-      />
-    </div>
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-2 md:px-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 bg-white p-2 rounded-lg shadow">
+            {loading ? (
+              <p className="text-center py-16">Cargando eventos...</p>
+            ) : error ? (
+              <p className="text-center py-16 text-red-500">Error cargando eventos</p>
+            ) : (
+              <Calendario
+                eventos={eventos}
+                onDateClick={(events, date) => handleDateClick(events, date)}
+              />
+            )}
+          </div>
 
-    {/* Panel lateral */}
-    <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
-      <PanelEventos eventos={selectedEvents} />
-    </div>
-  </div>
-</section>
-
+          <div className="bg-white p-6 rounded-lg shadow flex items-center justify-center">
+            <PanelEventos eventos={selectedEvents} selectedDate={selectedDate} />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
