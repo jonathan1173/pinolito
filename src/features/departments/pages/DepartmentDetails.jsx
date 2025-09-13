@@ -5,6 +5,7 @@ import axios from "axios";
 import DepartmentHero from "../components/DepartamentHero";
 import DepartmentSkills from "../components/DepartmentSkills";
 import DepartmentsLogos from "../components/DepartmentsLogos";
+import RecentExperiences from "../components/RecentActivities"
 
 export default function DepartmentDetails() {
   const { ciudad } = useParams();
@@ -61,11 +62,11 @@ export default function DepartmentDetails() {
     );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-300">
       {/* Hero separado */}
       <DepartmentHero department={departamento} />
 
-      {/* Datos adicionales debajo del Hero */}
+      {/* Datos adicionales sobre caracteristicas del departamento */}
       <section className="max-w-4xl mx-auto px-6 py-12 space-y-6">
         {/* Datos clave del departamento */}
         <dl className="flex flex-col sm:flex-row justify-center items-center gap-8 bg-white border border-gray-300 rounded-3xl p-6 shadow-md">
@@ -94,7 +95,6 @@ export default function DepartmentDetails() {
 
       <section className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Cada componente ocupa la mitad en pantallas medianas para arriba */}
           <div className="w-full md:w-1/2">
             <DepartmentSkills departamentoId={departamento.id} />
           </div>
@@ -106,6 +106,8 @@ export default function DepartmentDetails() {
           </div>
         </div>
       </section>
+
+      <RecentExperiences departamentoId={departamento.id} />
     </div>
   );
 }
