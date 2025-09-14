@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import DepartmentHero from "../components/DepartamentHero";
 import DepartmentMap from "../components/DepartmentMap";
+import DepartmentCultureTabs from "../components/culture/DepartmentCultureTabs";
 
 // carga diferida de componentes secundarios
 const DepartmentSkills = lazy(() => import("../components/DepartmentSkills"));
@@ -138,7 +139,10 @@ export default function DepartmentDetails() {
           </div>
         </section>
 
+        <DepartmentCultureTabs />
+
         <RecentExperiences departamentoId={departamento.id} />
+        
       </Suspense>
     </div>
   );
