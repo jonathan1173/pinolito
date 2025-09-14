@@ -33,7 +33,7 @@ export default function PanelEventos({ eventos, selectedDate }) {
         })}
       </h3>
 
-      <div className="max-h-[350px] lg:max-h-[600px] overflow-y-auto space-y-4">
+      <div className="max-h-[350px] lg:max-h-[600px]  space-y-4">
         {eventos.map((evento) => (
           <EventoCard key={evento.id} evento={evento.extendedProps} />
         ))}

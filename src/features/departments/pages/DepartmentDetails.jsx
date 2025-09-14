@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import DepartmentHero from "../components/DepartamentHero";
+import DepartmentMap from "../components/DepartmentMap";
 
 // carga diferida de componentes secundarios
 const DepartmentSkills = lazy(() => import("../components/DepartmentSkills"));
@@ -64,7 +65,8 @@ export default function DepartmentDetails() {
           Departamento no encontrado
         </h1>
         <p className="text-gray-600 mb-6">
-          El departamento que buscas no está disponible en nuestra base de datos.
+          El departamento que buscas no está disponible en nuestra base de
+          datos.
         </p>
         <Link
           to="/department"
@@ -81,7 +83,7 @@ export default function DepartmentDetails() {
       <DepartmentHero department={departamento} />
 
       {/* Datos básicos */}
-      <section className="max-w-4xl mx-auto px-6 py-12 space-y-6">
+      <section className="max-w-6xl mx-auto px-6 py-8 space-y-3">
         <dl className="flex flex-col sm:flex-row justify-center items-center gap-8 bg-white border border-gray-300 rounded-3xl p-6 shadow-md">
           <div className="text-center">
             <dt className="text-sm font-medium text-gray-500">Población</dt>
@@ -107,19 +109,32 @@ export default function DepartmentDetails() {
 
       {/* Secciones cargadas en diferido */}
       <Suspense
-        fallback={<p className="text-center text-gray-500">Cargando secciones...</p>}
+        fallback={
+          <p className="text-center text-gray-500">Cargando secciones...</p>
+        }
       >
-        <section className="max-w-6xl mx-auto px-6 py-12">
+        <section className="max-w-6xl mx-auto px-6 py-8 space-y-3 ">
+          {/* Fila con DepartmentSkills y el mapa */}
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="w-full md:w-1/2">
-              <DepartmentSkills departamentoId={departamento.id} />
+            <div className="w-full md:w-1/2 flex flex-col">
+              <div className="flex-1 bg-white rounded-lg shadow p-6">
+                <DepartmentSkills departamentoId={departamento.id} />
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <DepartmentsLogos
-                ciudad={departamento}
-                departamentoId={departamento.id}
-              />
+
+            <div className="w-full md:w-1/2 flex flex-col">
+              <div className="flex-1 bg-white rounded-lg shadow p-6">
+                <DepartmentMap ciudad={departamento} />
+              </div>
             </div>
+          </div>
+
+          {/* Sección de logros / reconocimientos */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <DepartmentsLogos
+              ciudad={departamento}
+              departamentoId={departamento.id}
+            />
           </div>
         </section>
 
