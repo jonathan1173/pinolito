@@ -1,4 +1,6 @@
 import CultureCard from "./CultureCard";
+import { useState } from "react";
+
 
 export default function HistorySection() {
   const historias = [

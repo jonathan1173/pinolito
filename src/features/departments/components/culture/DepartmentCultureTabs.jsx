@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import HistorySection from "./HistorySection";
 import GastronomySection from "./GastronomySection";
 import TraditionsSection from "./TraditionsSection";
@@ -59,20 +59,7 @@ export default function DepartmentCultureTabs({ departamentoId }) {
       </div>
 
       {/* Contenido animado */}
-      <div className="px-4 md:px-10 mb-4">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-          >
-            {renderTab()}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <div className="px-4 md:px-10 mb-4">{renderTab()}</div>
     </div>
   );
 }
-    

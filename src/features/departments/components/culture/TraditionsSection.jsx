@@ -2,8 +2,8 @@ import CultureCard from "./CultureCard";
 
 export default function TraditionsSection() {
   const tradiciones = [
-    { id: 1, titulo: "Fiesta Patronal", descripcion: "Celebración anual con procesiones, bailes y ferias gastronómicas.", imagen_url: "https://via.placeholder.com/15"},
-    { id: 2, titulo: "Festival del Maíz", descripcion: "Evento cultural donde se presentan danzas, música y comidas hechas a base de maíz.",  imagen_url: "https://via.placeholder.com/15"},
+    { id: 1, titulo: "Fiesta Patronal",  imagen_url: "https://via.placeholder.com/15"},
+    { id: 2, titulo: "Festival del Maíz",  imagen_url: "https://via.placeholder.com/15"},
   ];
 
   return (
