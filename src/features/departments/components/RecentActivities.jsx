@@ -23,7 +23,7 @@ export default function RecentExperiences({ departamentoId }) {
             },
           }
         );
-        console.log("👉 Datos recibidos:", data);
+        // console.log("👉 Datos recibidos:", data);
         setExperiencias(data);
       } catch (error) {
         console.error("Error al cargar experiencias:", error);

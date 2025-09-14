@@ -60,6 +60,10 @@ export default function DepartmentSkills({ departamentoId }) {
     percentage: ((h.value / totalTrabajadores) * 100).toFixed(1),
   }));
 
+// console.log("habilidades", habilidades);
+// console.log("groupedData", groupedData);
+// console.log("chartData", chartData);
+
   return (
     <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
       <h2 className="text-lg font-bold mb-4">Sectores Económicos</h2>
