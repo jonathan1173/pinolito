@@ -73,7 +73,6 @@ export default function DepartmentSkills({ departamentoId }) {
             data={chartData}
             dataKey="value"
             nameKey="name"
-            label={(entry) => `${entry.name} (${entry.percentage}%)`}
             outerRadius={90}
             
           >

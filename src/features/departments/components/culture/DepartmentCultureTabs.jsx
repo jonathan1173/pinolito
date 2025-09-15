@@ -59,7 +59,7 @@ export default function DepartmentCultureTabs({ departamentoId }) {
       </div>
 
       {/* Contenido animado */}
-      <div className="px-4 md:px-10 mb-4">{renderTab()}</div>
+      <div className="px-5 md:px-19 mb-4">{renderTab()}</div>
     </div>
   );
 }
