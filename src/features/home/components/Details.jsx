@@ -9,7 +9,7 @@ const cultureSections = [
       "Nicaragua es un país montañoso con volcanes, lagos y reservas naturales que forman paisajes únicos.",
     image: "./volcan-concepcion-2022.jpg",
     icon: Mountain,
-    color: "from-amber-700 via-amber-500 to-amber-400", // 🌄 Paisajes → Ámbares
+    color: "from-amber-700 via-amber-500 to-amber-400",
     solid: "bg-amber-600",
     titleColor: "text-amber-900",
     textColor: "text-amber-800",
@@ -21,7 +21,7 @@ const cultureSections = [
       "Su biodiversidad incluye bosques tropicales, ríos y especies endémicas que muestran la riqueza natural del país.",
     image: "./flora-fauna.jpg",
     icon: Leaf,
-    color: "from-lime-700 via-lime-500 to-lime-400", // 🌿 Flora → Verdes
+    color: "from-lime-700 via-lime-500 to-lime-400",
     solid: "bg-lime-600",
     titleColor: "text-lime-900",
     textColor: "text-lime-800",
@@ -32,7 +32,7 @@ const cultureSections = [
     description:
       "Platos tradicionales como el gallo pinto, vigorón y quesillo reflejan la cultura y los sabores locales.",
     icon: Utensils,
-    color: "from-yellow-700 via-orange-500 to-amber-400", // 🍲 Gastronomía → Amarillo/Naranja
+    color: "from-yellow-700 via-orange-500 to-amber-400",
     solid: "bg-amber-500",
     titleColor: "text-yellow-900",
     textColor: "text-yellow-800",
@@ -44,7 +44,7 @@ const cultureSections = [
     description:
       "La música folclórica, danzas tradicionales y artesanías reflejan la creatividad y la historia del pueblo nicaragüense.",
     icon: Music,
-    color: "from-blue-700 via-blue-500 to-blue-400", // 🎶 Música → Azules
+    color: "from-blue-700 via-blue-500 to-blue-400",
     solid: "bg-blue-600",
     titleColor: "text-blue-900",
     textColor: "text-blue-800",
@@ -76,7 +76,7 @@ export default function CultureSlider() {
   const IconComponent = currentSection.icon;
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative py-12 flex justify-center items-center overflow-hidden">
       {/* Fondo animado */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => (
@@ -103,36 +103,30 @@ export default function CultureSlider() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8 sm:py-12">
         {/* Header */}
         <motion.div
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <motion.h2
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 sm:mb-8"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span
-              className={`block drop-shadow-2xl mb-2 sm:mb-4 ${currentSection.titleColor}`}
+              className={`block drop-shadow-2xl ${currentSection.titleColor}`}
               style={{ WebkitTextStroke: "1px white" }}
             >
-              Tesoros de nuestra
-            </span>
-            <span
-              className={`block drop-shadow-lg bg-clip-text ${currentSection.textColor}`}
-              style={{ WebkitTextStroke: "1px white" }}
-            >
-              identidad cultural
+              Tesoros de nuestra identidad cultural
             </span>
           </motion.h2>
 
           <motion.p
-            className={`${currentSection.textColor} text-base sm:text-xl md:text-2xl max-w-3xl sm:max-w-4xl mx-auto leading-relaxed`}
+            className={`${currentSection.textColor} text-base sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -143,10 +137,10 @@ export default function CultureSlider() {
           </motion.p>
         </motion.div>
 
-        {/* Contenedor del slider, indicadores y barra de progreso */}
+        {/* Slider */}
         <div className="relative">
-          {/* Indicadores arriba */}
-          <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-4 z-20">
+          {/* Indicadores */}
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-4 z-20">
             {cultureSections.map((section, index) => {
               const SectionIcon = section.icon;
               return (
@@ -173,7 +167,7 @@ export default function CultureSlider() {
                   }
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <SectionIcon className="w-4 sm:w-5 h-4 sm:h-5 text-white transition-colors"/>
+                  <SectionIcon className="w-4 sm:w-5 h-4 sm:h-5 text-white transition-colors" />
                 </motion.button>
               );
             })}
@@ -184,30 +178,25 @@ export default function CultureSlider() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] rounded-3xl overflow-hidden shadow-2xl"
+                className="relative w-full h-80 rounded-3xl overflow-hidden shadow-2xl"
                 initial={{ opacity: 0, scale: 0.9, rotateY: 90 }}
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 exit={{ opacity: 0, scale: 0.9, rotateY: -90 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
               >
-                {/* Imagen de fondo */}
-                <motion.div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${currentSection.image})` }}
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                {/* Imagen de fondo con overlay */}
+                <img
+                  src={currentSection.image}
+                  alt={currentSection.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
                 />
-
-             
+                <div className="absolute inset-0 bg-black/50" />
 
                 {/* Contenido */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-center px-4 sm:px-8 md:px-16">
+                <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-16 text-white">
                   <motion.h3
-                    className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-white`}
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 leading-tight"
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
@@ -216,7 +205,7 @@ export default function CultureSlider() {
                   </motion.h3>
 
                   <motion.p
-                    className={`text-white text-sm sm:text-base md:text-lg mb-4 sm:mb-6 max-w-full sm:max-w-3xl leading-relaxed`}
+                    className="text-sm sm:text-base md:text-lg mb-2 sm:mb-4 max-w-full sm:max-w-3xl leading-relaxed"
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.7 }}
@@ -225,7 +214,7 @@ export default function CultureSlider() {
                   </motion.p>
 
                   <motion.div
-                    className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-3 sm:px-6 py-2 sm:py-3 text-white font-medium"
+                    className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-3 sm:px-6 py-1 sm:py-2 text-white font-medium"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.9 }}
@@ -245,8 +234,8 @@ export default function CultureSlider() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Barra de progreso arriba de la tarjeta */}
-            <div className="absolute botton-0 left-0 right-0 h-1 bg-white/20">
+            {/* Barra de progreso */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
               <motion.div
                 className={`h-full bg-gradient-to-r ${currentSection.color}`}
                 initial={{ width: "0%" }}
@@ -257,40 +246,6 @@ export default function CultureSlider() {
             </div>
           </div>
         </div>
-
-        {/* Mini cards */}
-        <motion.div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {cultureSections.map((section, index) => {
-            const SectionIcon = section.icon;
-            return (
-              <motion.button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`relative p-4 rounded-2xl transition-all duration-300 ${
-                  index === current
-                    ? "bg-white/20 border-2 border-white shadow-2xl"
-                    : "bg-white/5 border border-white/10 hover:bg-white/10"
-                }`}
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div
-                  className={`w-12 h-12 ${section.solid} rounded-full flex items-center justify-center mb-3 mx-auto`}
-                >
-                  <SectionIcon className="w-6 h-6 text-white" />
-                </div>
-                <h4
-                  className={`${section.titleColor} font-semibold text-sm mb-1`}
-                >
-                  {section.title}
-                </h4>
-                <p className={`${section.textColor} text-xs`}>
-                  {section.stats}
-                </p>
-              </motion.button>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );

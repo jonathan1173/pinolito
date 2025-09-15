@@ -20,7 +20,7 @@ export default function MapView() {
 
   return (
     <section
-      className="max-w-6xl h-screen mx-auto px-4 py-12"
+      className="py-12 mx-auto px-4 "
       aria-labelledby="mapa-titulo"
     >
       {/* Encabezado */}
@@ -39,7 +39,7 @@ export default function MapView() {
           center={center}
           zoom={7}
           scrollWheelZoom={false}
-          className="h-[70vh] w-full z-0"
+          className="h-[50vh] sm:h-[60vh] md:h-[70vh] w-full z-0"
           aria-label="Mapa de Nicaragua con departamentos interactivos"
         >
           <TileLayer
