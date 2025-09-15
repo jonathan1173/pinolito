@@ -139,7 +139,7 @@ export default function DepartmentDetails() {
           </div>
         </section>
 
-        <DepartmentCultureTabs />
+        <DepartmentCultureTabs departamentoId={departamento.id} />
 
         <RecentExperiences departamentoId={departamento.id} />
         

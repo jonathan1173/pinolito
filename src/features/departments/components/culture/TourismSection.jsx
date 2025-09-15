@@ -8,6 +8,8 @@ export default function TourismSection({ departamentoId }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // console.log("nombre departamento" + departamentoId)
+
   useEffect(() => {
     const fetchLugares = async () => {
       setLoading(true);
@@ -21,6 +23,7 @@ export default function TourismSection({ departamentoId }) {
             },
             params: {
               select: "id,nombre,imagen_url", // Solo trae título e imagen
+              departamento_id: `eq.${departamentoId}`, 
             },
           }
         );
