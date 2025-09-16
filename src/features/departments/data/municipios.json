@@ -1,0 +1,13 @@
+{
+  "Masaya": [
+    { "nombre": "Masaya", "coords": [11.9670, -85.9410] },
+    { "nombre": "Nindirí", "coords": [11.8972, -85.8900] },
+    { "nombre": "La Concepción", "coords": [11.9500, -85.9160] }
+  ],
+  "Managua": [
+    { "nombre": "Managua", "coords": [12.1364, -86.2514] },
+    { "nombre": "Ticuantepe", "coords": [12.0300, -86.2600] },
+    { "nombre": "Mateare", "coords": [12.2000, -86.3500] }
+  ]
+}
+

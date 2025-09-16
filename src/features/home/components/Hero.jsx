@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background Images con overlay suave */}
-      <div className="absolute inset-0 flex ">
+      <div className="absolute inset-0 flex  ">
         {/* Izquierda */}
         <motion.div
           className="w-1/2 relative overflow-hidden"
@@ -22,7 +22,7 @@ export default function Hero() {
               backgroundPosition: "left",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-black/50 " />
         </motion.div>
 
         {/* Derecha */}
@@ -40,7 +40,7 @@ export default function Hero() {
               backgroundPosition: "right",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/30 to-transparent" />
+          <div className="absolute inset-0  bg-black/50 " />
         </motion.div>
       </div>
 
@@ -53,9 +53,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="block text-blue-900">
+            <span
+              className="block text-white"
+            >
               Descubre la riqueza de la
             </span>
+
             <span className="block text-white drop-shadow-lg">
               cultura nicaragüense
             </span>
@@ -72,7 +75,7 @@ export default function Hero() {
           {/* Botón principal */}
           <Link
             to="/games"
-            className="group relative overflow-hidden bg-blue-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-[#FAB036]/60 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
+            className="group relative overflow-hidden bg-blue-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-blue-400 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               <Play className="w-5 h-5" />
@@ -84,7 +87,7 @@ export default function Hero() {
           {/* Botón secundario */}
           <Link
             to="/activity"
-            className="group relative overflow-hidden bg-[#5A7A0A] text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-[#83D350] hover:text-[#513C2F] transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
+            className="group relative overflow-hidden bg-lime-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-lime-400 hover:text-stone-800 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               Ver Actividades
