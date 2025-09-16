@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Trees from "./Trees";
+import FireworksComponent from "./Fireworks";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,53 +63,120 @@ export default function HorizontalScrollSection() {
   };
 
   return (
-    <div ref={component} className="overflow-x-hidden">
+    <div ref={component} className="overflow-x-hidden bg-black">
       {/* Sección horizontal */}
+
       <section
         ref={slider}
         className="relative w-screen overflow-hidden hidden sm:hidden md:block"
       >
         <div className="flex h-screen ">
           {/* Panel 1 */}
-          <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center bg-blue-100 relative">
+          <div
+            className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center relative "
+            style={{
+              background:
+                "linear-gradient(to right, #38bdfa 50%, #000000 100%)",
+            }}
+          >
             <div className="text-center p-8 z-10">
               <h2 className="text-8xl font-bold mb-4">
                 {renderFrase(frasePanel1)}
               </h2>
             </div>
+            <Trees />
+            <img
+              src="./ometepe.jpg"
+              alt=""
+              className="absolute h-40 top-10 left-20 rounded-2xl rotate-6 -z-10"
+            />
+            <img
+              src="./iglesia.jpg"
+              alt=""
+              className="absolute h-80 top-20 left-90 rounded-2xl rotate-0 -z-10"
+            />
+            <img
+              src="./paisaje nica.jpg"
+              alt=""
+              className="absolute h-40 top-50 left-30 rounded-2xl -rotate-2 -z-5"
+            />
 
-            {/* Triángulos estilo montañas */}
-            <div className="absolute bottom-0 left-10 w-0 h-0 border-l-[60px] border-r-[60px] border-b-[100px] border-l-transparent border-r-transparent border-b-gray-700"></div>
-            <div className="absolute bottom-0 left-60 w-0 h-0 border-l-[80px] border-r-[80px] border-b-[150px] border-l-transparent border-r-transparent border-b-gray-600"></div>
-            <div className="absolute bottom-0 left-160 w-0 h-0 border-l-[50px] border-r-[50px] border-b-[90px] border-l-transparent border-r-transparent border-b-gray-800"></div>
+            <svg
+              className="absolute -z-10 bottom-0 -right-10 w-[800px] h-84"
+              viewBox="0 0 300 150"
+              preserveAspectRatio="none"
+            >
+              <polygon points="10,150 70,50 130,150" fill="#374151" />
+              <polygon points="60,150 140,0 220,150" fill="#4B5563" />
+              <polygon points="160,150 210,60 260,150" fill="#1F2937" />
+            </svg>
           </div>
 
           {/* Panel 2 */}
-          <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center bg-green-100 relative">
+          <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center bg-black relative">
             <div className="text-center p-8 z-10">
-              <h2 className="text-8xl font-bold mb-4">
+              <h2 className="text-8xl font-bold mb-4 text-blue-500">
                 {renderFrase(frasePanel2)}
               </h2>
             </div>
-            < Trees/>
+            <FireworksComponent flickerEffect={true} className="my-fireworks" />
+
+            <Trees />
           </div>
 
           {/* Panel 3 */}
-          <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center bg-yellow-100">
+          <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center bg-black">
             <div className="text-center p-8">
-              <h2 className="text-8xl font-bold mb-4">
+              <h2 className="text-8xl font-bold mb-4 text-white">
                 {renderFrase(frasePanel3)}
               </h2>
             </div>
+            <FireworksComponent flickerEffect={true} className="my-fireworks" />
+
+            <Trees />
           </div>
 
           {/* Panel 4 */}
-          <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center bg-red-100">
+          <div
+            className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center bg-red-100"
+            style={{
+              background: "linear-gradient(to left, #38bdfa 50%, #000000 100%)",
+            }}
+          >
             <div className="text-center p-8">
               <h2 className="text-8xl font-bold mb-4">
                 {renderFrase(frasePanel4)}
               </h2>
             </div>
+            <Trees />
+            <svg
+              className="absolute -z-10 bottom-0 left-150 h-84"
+              viewBox="0 0 500 150"
+              preserveAspectRatio="none"
+            >
+              {/* Montaña 1 - curva suave */}
+              <path d="M0,150 Q50,80 120,150 T250,150" fill="#374151" />
+              {/* Montaña 2 - curva más alta */}
+              <path d="M100,150 Q200,40 300,150 T500,150" fill="#4B5563" />
+              {/* Montaña 3 - curva pequeña */}
+              <path d="M200,150 Q250,90 320,150 T500,150" fill="#1F2937" />
+            </svg>
+
+            <img
+              src="./ometepe.jpg"
+              alt=""
+              className="absolute h-40 top-10 right-20 rounded-2xl rotate-6 -z-10"
+            />
+            <img
+              src="./iglesia.jpg"
+              alt=""
+              className="absolute h-80 top-20 right-90 rounded-2xl rotate-0 -z-10"
+            />
+            <img
+              src="./paisaje nica.jpg"
+              alt=""
+              className="absolute h-40 top-50 right-30 rounded-2xl -rotate-2 -z-10"
+            />
           </div>
         </div>
       </section>
