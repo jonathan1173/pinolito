@@ -16,7 +16,7 @@ export function Navbar() {
     <nav className="h-[10vh] bg-blue-500 text-white px-6 py-4 flex justify-between items-center` top-0 left-0 w-full z-50 shadow-md">
       {/* Logo */}
       <Link to="/" className="flex items-center text-2xl font-bold text-white">
-        NicaMundo
+        Pinolito
       </Link>
 
       {/* Links desktop */}
