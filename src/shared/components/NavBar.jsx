@@ -1,60 +1,83 @@
-"use client";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, Calendar, Gamepad2, Menu, X } from "lucide-react";
+import { Home, Calendar, Gamepad2, Menu, X, User } from "lucide-react";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { to: "/", label: "Inicio", icon: <Home size={18} /> },
-    { to: "/department", label: "Departamentos", icon: <Calendar size={18} /> },
-    { to: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
+    { href: "/", label: "Inicio", icon: <Home size={18} /> },
+    { href: "/department", label: "Departamentos", icon: <Calendar size={18} /> },
+    { href: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
   ];
 
-  return (
-    <nav className="h-[10vh] bg-blue-500 text-white px-6 py-4 flex justify-between items-center` top-0 left-0 w-full z-50 shadow-md">
-      {/* Logo */}
-      <Link to="/" className="flex items-center text-2xl font-bold text-white">
-        Pinolito
-      </Link>
+  const NavbarLink = ({ href, icon, label, onClick }) => (
+    <Link
+      to={href}
+      className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-stone-600 rounded-lg transition-all hover:text-blue-700 hover:bg-blue-50 active:bg-blue-100"
+      onClick={onClick}
+    >
+      <span className="text-stone-500">{icon}</span>
+      {label}
+    </Link>
+  );
 
-      {/* Links desktop */}
-      <div className="hidden md:flex space-x-8">
+  const MobileMenu = () => (
+    <div className="md:hidden border-t border-stone-200 bg-white">
+      <div className="container mx-auto px-4 py-4 space-y-2">
         {links.map((link) => (
-          <Link
-            key={link.to}
-            to={link.to}
-            className="flex items-center gap-2 hover:text-yellow-500 transition"
-          >
-            {link.icon} {link.label}
-          </Link>
+          <NavbarLink
+            key={link.href}
+            href={link.href}
+            icon={link.icon}
+            label={link.label}
+            onClick={() => setOpen(false)}
+          />
         ))}
+        <div className="pt-2 mt-2 border-t border-stone-200">
+          <button className="w-full flex items-center gap-3 px-4 py-3 text-base font-medium text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg">
+            <User size={18} />
+            Usuario
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <nav className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 shadow-sm transition-transform group-hover:scale-105">
+              <span className="text-lg font-bold text-white">P</span>
+            </div>
+            <span className="text-xl font-bold text-stone-800 hidden sm:block">Pinolito</span>
+          </Link>
+
+          <div className="hidden md:flex items-center space-x-1">
+            {links.map((link) => (
+              <NavbarLink key={link.href} href={link.href} icon={link.icon} label={link.label} />
+            ))}
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <button className="hidden sm:flex items-center gap-2 px-3 py-1 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg">
+              <User size={18} />
+              <span className="text-sm">Usuario</span>
+            </button>
+
+            <button
+              className="md:hidden p-2 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
+              onClick={() => setOpen(!open)}
+            >
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Botón hamburguesa */}
-      <button
-        className="md:hidden text-white hover:text-yellow-500 transition"
-        onClick={() => setOpen(!open)}
-      >
-        {open ? <X size={28} /> : <Menu size={28} />}
-      </button>
-
-      {/* Menú móvil */}
-      {open && (
-        <div className="z-30 absolute top-[10vh] left-0 w-full bg-blue-900 flex flex-col items-center space-y-6 py-6 md:hidden shadow-lg animate-slideDown">
-          {links.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className="flex items-center gap-2 text-lg hover:text-yellow-500 transition"
-              onClick={() => setOpen(false)}
-            >
-              {link.icon} {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      {open && <MobileMenu />}
     </nav>
   );
 }
