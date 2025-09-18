@@ -1,21 +1,8 @@
 {
-"León": [
-  { "nombre": "León", "coords": [12.4375, -86.8789] },
-  { "nombre": "El Jicaral", "coords": [12.5167, -87.1167] },
-  { "nombre": "El Sauce", "coords": [12.4750, -86.9333] },
-  { "nombre": "La Paz Centro", "coords": [12.3333, -86.7667] },
-  { "nombre": "Larreynaga", "coords": [12.4833, -86.9000] },
-  { "nombre": "Nagarote", "coords": [12.3550, -86.7833] },
-  { "nombre": "Quezalguaque", "coords": [12.4000, -86.7833] },
-  { "nombre": "Santa Rosa del Peñón", "coords": [12.3800, -86.8833] },
-  { "nombre": "Telica", "coords": [12.4170, -86.8500] },
-  { "nombre": "Achuapa", "coords": [12.5333, -87.0333] }
-]
-,
-  "Managua": [
-    { "nombre": "Managua", "coords": [12.1364, -86.2514] },
-    { "nombre": "Ticuantepe", "coords": [12.0300, -86.2600] },
-    { "nombre": "Mateare", "coords": [12.2000, -86.3500] }
+  "leon": [
+    { "nombre": "León", "slug": "leon", "coords": [12.4375, -86.8789] }
+  ],
+  "managua": [
+    { "nombre": "Managua", "slug": "managua", "coords": [12.1364, -86.2514] }
   ]
 }
-

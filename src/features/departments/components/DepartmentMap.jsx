@@ -8,7 +8,8 @@ import municipiosData from "../data/municipios.json";
 // Icono del marcador
 const icon = new L.Icon({
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  iconRetinaUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
   iconSize: [25, 41],
   iconAnchor: [12, 41],
@@ -29,12 +30,20 @@ function FitBounds({ markers }) {
 }
 
 export default function DepartmentMap({ ciudad }) {
-  const municipios = ciudad ? municipiosData[ciudad.nombre] || [] : [];
+const municipios = ciudad ? municipiosData[ciudad.slug] || [] : [];
+
+  console.log("ciudad.nombre:", ciudad.nombre);
+console.log("municipiosData keys:", Object.keys(municipiosData));
+console.log("municipios encontrados:", municipios);
+
 
   return (
-    <div >
+    <div>
       <h2 className="flex items-center mb-4 text-lg font-bold">
-        <span className="mr-2"><MapPin color="blue" /></span> Sus Municipios
+        <span className="mr-2">
+          <MapPin color="blue" />
+        </span>{" "}
+        Sus Municipios
       </h2>
       <MapContainer
         center={[12.0, -85.5]}
@@ -53,7 +62,7 @@ export default function DepartmentMap({ ciudad }) {
               <div>
                 <h3 className="font-semibold">{mun.nombre}</h3>
                 <Link
-                  to={`/department/${encodeURIComponent(mun.nombre)}`}
+                  to={`/department/${ciudad.slug}/municipios/${mun.slug}`}
                   className="text-sm text-blue-600 hover:text-blue-800"
                 >
                   ➝ Ver ficha completa
