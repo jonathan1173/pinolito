@@ -7,14 +7,18 @@ export function Navbar() {
 
   const links = [
     { href: "/", label: "Inicio", icon: <Home size={18} /> },
-    { href: "/department", label: "Departamentos", icon: <Calendar size={18} /> },
+    {
+      href: "/department",
+      label: "Departamentos",
+      icon: <Calendar size={18} />,
+    },
     { href: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
   ];
 
   const NavbarLink = ({ href, icon, label, onClick }) => (
     <Link
       to={href}
-      className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-stone-600 rounded-lg transition-all hover:text-blue-700 hover:bg-blue-50 active:bg-blue-100"
+      className="z-50 flex items-center gap-2 px-4 py-2 text-sm font-medium text-stone-600 rounded-lg transition-all hover:text-blue-700 hover:bg-blue-50 active:bg-blue-100"
       onClick={onClick}
     >
       <span className="text-stone-500">{icon}</span>
@@ -52,12 +56,19 @@ export function Navbar() {
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 shadow-sm transition-transform group-hover:scale-105">
               <span className="text-lg font-bold text-white">P</span>
             </div>
-            <span className="text-xl font-bold text-stone-800 hidden sm:block">Pinolito</span>
+            <span className="text-xl font-bold text-stone-800 hidden sm:block">
+              Pinolito
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">
             {links.map((link) => (
-              <NavbarLink key={link.href} href={link.href} icon={link.icon} label={link.label} />
+              <NavbarLink
+                key={link.href}
+                href={link.href}
+                icon={link.icon}
+                label={link.label}
+              />
             ))}
           </div>
 

@@ -14,7 +14,7 @@ export default function DepartementHero({ department }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <Link
             to="/department"
-            className="flex items-center mb-6 px-4 py-2 bg-white/90 rounded-md shadow hover:bg-white"
+            className="flex items-center mb-6 px-4 py-2 bg-white rounded-md shadow "
           >
             <ArrowLeft className="w-4 h-4 mr-2" /> Volver a Ciudades
           </Link>

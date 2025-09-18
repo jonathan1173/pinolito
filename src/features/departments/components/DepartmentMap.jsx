@@ -30,12 +30,11 @@ function FitBounds({ markers }) {
 }
 
 export default function DepartmentMap({ ciudad }) {
-const municipios = ciudad ? municipiosData[ciudad.slug] || [] : [];
+  const municipios = ciudad ? municipiosData[ciudad.slug] || [] : [];
 
-//   console.log("ciudad.nombre:", ciudad.nombre);
-// console.log("municipiosData keys:", Object.keys(municipiosData));
-// console.log("municipios encontrados:", municipios);
-
+  //   console.log("ciudad.nombre:", ciudad.nombre);
+  // console.log("municipiosData keys:", Object.keys(municipiosData));
+  // console.log("municipios encontrados:", municipios);
 
   return (
     <div>
@@ -49,7 +48,7 @@ const municipios = ciudad ? municipiosData[ciudad.slug] || [] : [];
         center={[12.0, -85.5]}
         zoom={10}
         scrollWheelZoom={false}
-        className="h-100 w-full rounded-lg"
+        className="h-100 w-full rounded-lg z-10"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'

@@ -79,7 +79,7 @@ export default function DepartmentDetails() {
     );
 
   return (
-    <div className="min-h-screen bg-blue-300">
+    <div className="bg-blue-300">
       {/* Hero */}
       <DepartmentHero department={departamento} />
 
