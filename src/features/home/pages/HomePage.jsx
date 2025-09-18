@@ -11,8 +11,8 @@ export default function HomePage() {
     <div>
       <Hero />
       <AboutUs />
-      <Details />
       <MapView />
+      <Details />
       <HorizontalScrollSection />
       <Vision />
     </div>

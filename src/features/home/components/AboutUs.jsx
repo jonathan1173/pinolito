@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full py-16 flex flex-col lg:flex-row items-center overflow-hidden">
+    <section className="relative w-full py-12 flex flex-col lg:flex-row items-center overflow-hidden">
       {/* Texto a la izquierda */}
       <div className="z-40 w-full lg:w-1/2 px-6 lg:px-12 py-12 space-y-6 text-center lg:text-left">
         <h1 className="text-4xl lg:text-6xl font-bold">Sobre Nosotros</h1>

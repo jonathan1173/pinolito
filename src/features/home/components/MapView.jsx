@@ -1,5 +1,5 @@
 import React from "react"
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet"
 import L from "leaflet"
 import data from "../data/departamentos.json"
 import { Link } from "react-router-dom"
@@ -20,7 +20,7 @@ export default function MapView() {
 
   return (
     <section
-      className="py-12 mx-auto md:mx-20 px-4 "
+      className=" mx-auto md:mx-20 px-4 "
       aria-labelledby="mapa-titulo"
     >
       {/* Encabezado */}
@@ -39,7 +39,7 @@ export default function MapView() {
           center={center}
           zoom={7}
           scrollWheelZoom={false}
-          className="h-[50vh] sm:h-[60vh] md:h-[70vh]  z-0"
+          className="h-[50vh] sm:h-[60vh] md:h-[70vh] z-0"
           aria-label="Mapa de Nicaragua con departamentos interactivos"
         >
           <TileLayer
@@ -48,6 +48,14 @@ export default function MapView() {
           />
           {Object.entries(data).map(([dep, info]) => (
             <Marker key={dep} position={info.coords} icon={icon}>
+              <Tooltip
+                direction="top"
+                offset={[0, -40]}
+                opacity={1}
+                className="bg-blue-600 text-white rounded-md px-2 py-1 text-sm shadow-lg"
+              >
+                {dep}
+              </Tooltip>
               <Popup>
                 <article className="min-w-[220px] space-y-2">
                   <h3 className="font-semibold text-lg">{dep}</h3>
