@@ -32,9 +32,9 @@ function FitBounds({ markers }) {
 export default function DepartmentMap({ ciudad }) {
 const municipios = ciudad ? municipiosData[ciudad.slug] || [] : [];
 
-  console.log("ciudad.nombre:", ciudad.nombre);
-console.log("municipiosData keys:", Object.keys(municipiosData));
-console.log("municipios encontrados:", municipios);
+//   console.log("ciudad.nombre:", ciudad.nombre);
+// console.log("municipiosData keys:", Object.keys(municipiosData));
+// console.log("municipios encontrados:", municipios);
 
 
   return (

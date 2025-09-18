@@ -7,7 +7,7 @@ export default function MunicipalityPage() {
   const [municipio, setMunicipio] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  console.log(municipioSlug);// el municipio apare undefined 
+  // console.log(municipioSlug);
 
   useEffect(() => {
     async function fetchMunicipio() {
