@@ -85,7 +85,7 @@ export default function MunicipalityPage() {
         departmentName={departamento.nombre}
       />
       <div className="max-w-6xl md:mx-auto px-1 md:px-6 py-6  md:py-12 space-y-12">
-        <p className="text-gray-800  leading-relaxed bg-white p-6 rounded-xl shadow-md border border-blue-200">
+        <p className="text-gray-800 text-justify leading-relaxed bg-white p-6 rounded-xl shadow-md border border-blue-200">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo beatae,
           reprehenderit, vero tempora itaque quae rem molestiae facilis maxime,
           esse adipisci reiciendis. Maiors ipsam, consectetur eum ea officia
@@ -95,6 +95,12 @@ export default function MunicipalityPage() {
           aliquid facilis eum. Accusantium saepe soluta deleniti maiores fugit
           sequi debitis ducimus animi maxime a iure eum nemo, culpa amet
           reprehenderit facere aspernatur ratione! Ipsam ut quidem nemo,
+          <br />
+          <img
+            className="h-50 w-full md:w-80 float-right ml-4 mb-2 rounded-lg mx-auto  "
+            src="/iglesia.jpg"
+            alt=""
+          />
           consequuntur fuga rerum optio odio! Eveniet magnam eum enim rem itaque
           reiciendis voluptates modi. Optio iure eos sapiente minima nam non
           explicabo ratione distinctio. Animi debitis voluptas quasi. Velit
@@ -106,6 +112,7 @@ export default function MunicipalityPage() {
           Accusamus quo quam a quas laboriosam ratione officiis soluta, quidem,
           distinctio voluptas expedita minima eligendi eum dicta sequi, animi
           aliquid? Dignissimos quasi fugit repellat! Nesciunt aut expedita vitae
+          <br />
           nihil fuga nostrum odio cumque totam. Dolorum corporis voluptatibus id
           ipsam neque distinctio facere assumenda, voluptas excepturi laboriosam
           iure animi, voluptatem laudantium ratione, architecto recusandae

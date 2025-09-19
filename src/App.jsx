@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage } from "./features/home";
 import { GamePage } from "./features/games";
-import { DepartmentsPage , DepartmentsDetails , CalendarPage } from "./features/departments";
+import {
+  DepartmentsPage,
+  DepartmentsDetails,
+  CalendarPage,
+} from "./features/departments";
 import { MunicipalityPage } from "./features/departments/municipalities";
 
-
-
 import { Navbar } from "./shared/components/NavBar";
-
+import Footer from "./shared/components/Footer";
 
 export default function App() {
   return (
@@ -20,9 +22,12 @@ export default function App() {
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/department" element={<DepartmentsPage />} />
           <Route path="/department/:ciudad" element={<DepartmentsDetails />} />
-          <Route path="/department/:departmentSlug/municipios/:municipioSlug" element={<MunicipalityPage />} />
-
+          <Route
+            path="/department/:departmentSlug/municipios/:municipioSlug"
+            element={<MunicipalityPage />}
+          />
         </Routes>
+        <Footer />
       </>
     </Router>
   );
