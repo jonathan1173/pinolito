@@ -23,7 +23,7 @@ function FitBounds({ markers }) {
   useEffect(() => {
     if (markers.length > 0) {
       const bounds = L.latLngBounds(markers.map((m) => m.coords));
-      map.fitBounds(bounds, { padding: [50, 50] });
+      map.fitBounds(bounds, { padding: [40, 40] });
     }
   }, [map, markers]);
   return null;
@@ -32,47 +32,44 @@ function FitBounds({ markers }) {
 export default function DepartmentMap({ ciudad }) {
   const municipios = ciudad ? municipiosData[ciudad.slug] || [] : [];
 
-  //   console.log("ciudad.nombre:", ciudad.nombre);
-  // console.log("municipiosData keys:", Object.keys(municipiosData));
-  // console.log("municipios encontrados:", municipios);
-
   return (
-    <div>
-      <h2 className="flex items-center mb-4 text-lg font-bold">
-        <span className="mr-2">
-          <MapPin color="blue" />
-        </span>{" "}
-        Sus Municipios
-      </h2>
-      <MapContainer
-        center={[12.0, -85.5]}
-        zoom={10}
-        scrollWheelZoom={false}
-        className="h-100 w-full rounded-lg z-10"
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+    <section className="bg-green-400 rounded-xl shadow-md p-6  border border-black">
+      <header className="flex items-center mb-4">
+        <MapPin className="w-5 h-5  text-black mr-2" />
+        <h2 className="text-lg font-bold text-black">Sus Municipios</h2>
+      </header>
 
-        {municipios.map((mun, index) => (
-          <Marker key={index} position={mun.coords} icon={icon}>
-            <Popup>
-              <div>
-                <h3 className="font-semibold">{mun.nombre}</h3>
-                <Link
-                  to={`/department/${ciudad.slug}/municipios/${mun.slug}`}
-                  className="text-sm text-blue-600 hover:text-blue-800"
-                >
-                  ➝ Ver ficha completa
-                </Link>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+      <article className="h-100 w-full rounded-lg overflow-hidden">
+        <MapContainer
+          center={[12.0, -85.5]}
+          zoom={10}
+          scrollWheelZoom={false}
+          className="h-full w-full z-0"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
 
-        <FitBounds markers={municipios} />
-      </MapContainer>
-    </div>
+          {municipios.map((mun, index) => (
+            <Marker key={index} position={mun.coords} icon={icon}>
+              <Popup>
+                <div>
+                  <h3 className="font-semibold">{mun.nombre}</h3>
+                  <Link
+                    to={`/department/${ciudad.slug}/municipios/${mun.slug}`}
+                    className="text-sm text-blue-600 hover:text-blue-800"
+                  >
+                    ➝ Ver ficha completa
+                  </Link>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+
+          <FitBounds markers={municipios} />
+        </MapContainer>
+      </article>
+    </section>
   );
 }

@@ -33,9 +33,9 @@ export default function DepartmentAchievements({ departamentoId, municipioId }) 
   }, [departamentoId, municipioId]);
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="bg-blue-400 rounded-lg shadow p-6">
       <h2 className="flex items-center mb-4 text-lg font-bold">
-        <span className="mr-2"><Trophy color="gold" /></span> Reconocimientos
+        <span className="mr-2"><Trophy color="black" /></span> Reconocimientos
       </h2>
 
       {reconocimientos.length === 0 ? (

@@ -13,8 +13,8 @@ export default function DepartmentSkills({ departamentoId }) {
   const [habilidades, setHabilidades] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const COLORS = ["#3b82f6", "#f97316", "#10b981", "#eab308", "#8b5cf6"];
-
+  // Colores brillantes y legibles sobre fondo claro
+const COLORS = ["#3335AA", "#FF6B6B", "#FFA500", "#A855F7", "#ff1144"];
   useEffect(() => {
     async function fetchHabilidades() {
       try {
@@ -40,9 +40,8 @@ export default function DepartmentSkills({ departamentoId }) {
   }, [departamentoId]);
 
   if (loading)
-    return <p className="text-center py-6">Cargando habilidades...</p>;
+    return <p className="text-center py-3">Cargando habilidades...</p>;
 
-  // 🔹 Agrupar por sector y sumar trabajadores
   const groupedData = habilidades.reduce((acc, h) => {
     const existing = acc.find((item) => item.name === h.nombre);
     if (existing) {
@@ -53,46 +52,43 @@ export default function DepartmentSkills({ departamentoId }) {
     return acc;
   }, []);
 
-  // 🔹 Calcular porcentaje
   const totalTrabajadores = groupedData.reduce((sum, h) => sum + h.value, 0);
   const chartData = groupedData.map((h) => ({
     ...h,
     percentage: ((h.value / totalTrabajadores) * 100).toFixed(1),
   }));
 
-// console.log("habilidades", habilidades);
-// console.log("groupedData", groupedData);
-// console.log("chartData", chartData);
-
   return (
-    <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
-      <h2 className="text-lg font-bold mb-4">Sectores Económicos</h2>
-      <ResponsiveContainer width="100%" height={350}>
-        <PieChart>
-          <Pie
-            data={chartData}
-            dataKey="value"
-            nameKey="name"
-            outerRadius={90}
-            
-          >
-            {chartData.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Tooltip
-            formatter={(value, name, props) => [
-              `${value.toLocaleString()} Empleados`, 
-              `${props.payload.name}`,
-            ]}
-          />
-
-          <Legend />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
+    <section className="rounded-lg shadow flex flex-col h-full border border-black">
+      <h2 className="text-base text-black font-bold my-2 text-center">
+        Sectores Económicos
+      </h2>
+      <div className="flex-1 w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              data={chartData}
+              dataKey="value"
+              nameKey="name"
+              outerRadius="65%"
+            >
+              {chartData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+            <Tooltip
+              formatter={(value, name, props) => [
+                `${value.toLocaleString()} empleados`,
+                `${props.payload.name}`,
+              ]}
+            />
+            <Legend />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+    </section>
   );
 }
