@@ -6,7 +6,7 @@ import TraditionsSection from "./TraditionsSection";
 import TourismSection from "./TourismSection";
 import SocietySection from "./SocietySection";
 
-export default function DepartmentCultureTabs({ departamentoId }) {
+export default function DepartmentCultureTabs({ departamentoId, departmentSlug }) {
   const [activeTab, setActiveTab] = useState("history");
 
   const tabs = [
@@ -20,15 +20,15 @@ export default function DepartmentCultureTabs({ departamentoId }) {
   const renderTab = () => {
     switch (activeTab) {
       case "history":
-        return <HistorySection departamentoId={departamentoId} />;
+        return <HistorySection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
       case "gastronomy":
-        return <GastronomySection departamentoId={departamentoId} />;
+        return <GastronomySection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
       case "traditions":
-        return <TraditionsSection departamentoId={departamentoId} />;
+        return <TraditionsSection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
       case "tourism":
-        return <TourismSection departamentoId={departamentoId} />;
+        return <TourismSection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
       case "society":
-        return <SocietySection departamentoId={departamentoId} />;
+        return <SocietySection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
       default:
         return null;
     }
@@ -36,7 +36,6 @@ export default function DepartmentCultureTabs({ departamentoId }) {
 
   return (
     <div className="w-full">
-      {/* Tabs adaptables a mobile */}
       <div className="relative flex md:justify-center overflow-x-auto border-b mb-4">
         {tabs.map((tab) => (
           <button
@@ -47,7 +46,6 @@ export default function DepartmentCultureTabs({ departamentoId }) {
             }`}
           >
             {tab.label}
-            {/* Indicador animado */}
             {activeTab === tab.id && (
               <motion.span
                 layoutId="underline"
@@ -58,7 +56,6 @@ export default function DepartmentCultureTabs({ departamentoId }) {
         ))}
       </div>
 
-      {/* Contenido animado */}
       <div className="px-5 md:px-19 mb-4">{renderTab()}</div>
     </div>
   );

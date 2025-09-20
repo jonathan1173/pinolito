@@ -3,32 +3,29 @@ import axios from "axios";
 import CultureCard from "./CultureCard";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function TourismSection({ departamentoId }) {
+export default function TourismSection({ departamentoId, departmentSlug }) {
   const [lugares, setLugares] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // console.log("nombre departamento" + departamentoId)
 
   useEffect(() => {
     const fetchLugares = async () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://vifqhfbtudcqbnsqwsqg.supabase.co/rest/v1/experiencias",
+          "https://vifqhfbtudcqbnsqwsqg.supabase.co/rest/v1/lugares",
           {
             headers: {
               apikey: import.meta.env.VITE_SUPABASE_KEY,
               Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
             },
             params: {
-              select: "id,nombre,imagen_url", // Solo trae título e imagen
-              departamento_id: `eq.${departamentoId}`, 
+              select: "id,nombre,imagen_url,slug",
+              departamento_id: `eq.${departamentoId}`,
             },
           }
         );
 
-        // console.log("Datos recibidos:", response.data);
         setLugares(response.data);
       } catch (err) {
         console.error("Error al obtener los lugares:", err);
@@ -38,14 +35,14 @@ export default function TourismSection({ departamentoId }) {
       }
     };
 
-    fetchLugares();
+    if (departamentoId) fetchLugares();
   }, [departamentoId]);
 
-  if (loading) return <p>Cargando lugares turísticos...</p>;
-  if (error) return <p>Error al cargar lugares.</p>;
+  if (loading) return <p>Cargando experiencias...</p>;
+  if (error) return <p>Error al cargar experiencias.</p>;
 
   return (
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <AnimatePresence>
         {lugares.map((l) => (
           <motion.div
@@ -55,7 +52,12 @@ export default function TourismSection({ departamentoId }) {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            <CultureCard titulo={l.nombre} imagen_url={l.imagen_url} />
+            <CultureCard
+              titulo={l.nombre}
+              imagen_url={l.imagen_url}
+              slug={l.slug}
+              departmentSlug={departmentSlug} // Pasamos el slug también
+            />
           </motion.div>
         ))}
       </AnimatePresence>

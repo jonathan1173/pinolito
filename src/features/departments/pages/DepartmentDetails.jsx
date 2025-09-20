@@ -142,7 +142,10 @@ export default function DepartmentDetails() {
         </section>
 
         <section className="py-8">
-          <DepartmentCultureTabs departamentoId={departamento.id} />
+          <DepartmentCultureTabs
+            departamentoId={departamento.id}
+            departmentSlug={departamento.slug}
+          />
         </section>
 
         <section className="">

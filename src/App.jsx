@@ -7,6 +7,7 @@ import {
   CalendarPage,
 } from "./features/departments";
 import { MunicipalityPage } from "./features/departments/municipalities";
+import   ExperienciasDetail  from "./features/departments/pages/culture/ExperienciasDetail"
 
 import { Navbar } from "./shared/components/NavBar";
 import Footer from "./shared/components/Footer";
@@ -25,6 +26,10 @@ export default function App() {
           <Route
             path="/department/:departmentSlug/municipios/:municipioSlug"
             element={<MunicipalityPage />}
+          />
+          <Route
+            path="/department/:departmentSlug/experiences/:slug"
+            element={<ExperienciasDetail />}
           />
         </Routes>
         <Footer />
