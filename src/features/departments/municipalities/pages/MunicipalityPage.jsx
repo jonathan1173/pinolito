@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import MunicipalityHero from "../components/MunicipalityHero";
-import DepartmentCultureTabs from "../../components/culture/DepartmentCultureTabs";
 
 export default function MunicipalityPage() {
   const { departmentSlug, municipioSlug } = useParams();
@@ -172,7 +171,6 @@ export default function MunicipalityPage() {
         </section>
       </div>
 
-      <DepartmentCultureTabs departamentoId={departamento.id} />
     </>
   );
 }
