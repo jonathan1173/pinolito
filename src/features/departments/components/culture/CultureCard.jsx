@@ -4,7 +4,7 @@ export default function CultureCard({ titulo, imagen_url, departmentSlug, slug, 
   return (
     <div className="border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition p-4 bg-gray-50 flex flex-col">
       {imagen_url && (
-        <div className="w-full h-36 mb-4 overflow-hidden rounded-md bg-gray-200">
+        <div className="w-full h-50 mb-4 overflow-hidden rounded-md bg-gray-200">
           <img src={imagen_url} alt={titulo} className="w-full h-full object-cover" />
         </div>
       )}
