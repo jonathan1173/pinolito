@@ -1,5 +1,5 @@
 // src/features/departments/pages/culture/SociedadDetail.jsx
-import { useDetalle } from "../../hooks/useDetalle";
+import { useDetalle } from "../../../hooks/useDetalle";
 import { useParams } from "react-router-dom";
 
 export default function SociedadDetail() {

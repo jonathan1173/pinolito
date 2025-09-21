@@ -12,11 +12,11 @@ import { Navbar } from "./shared/components/NavBar";
 import Footer from "./shared/components/Footer";
 
 // cultura
-import HistoriaDetail from "./features/departments/pages/culture/HistoriaDetail";
-import SociedadDetail from "./features/departments/pages/culture/SociedadDetail";
-import TurismoDetail from "./features/departments/pages/culture/TurismoDetail";
-import TradicionesDetail from "./features/departments/pages/culture/TradicionesDetail";
-import GastronomiaDetail from "./features/departments/pages/culture/GastronomiaDetail";
+import HistoriaDetail from "./features/departments/pages/culture/HistoriaDetail/HistoriaDetail";
+import SociedadDetail from "./features/departments/pages/culture/SociedadDetail/SociedadDetail";
+import TurismoDetail from "./features/departments/pages/culture/TurismoDetail/TurismoDetail";
+import TradicionesDetail from "./features/departments/pages/culture/TradicionesDetail/TradicionesDetail";
+import GastronomiaDetail from "./features/departments/pages/culture/GastronomiaDetail/GastronomiaDetail";
 
 export default function App() {
   return (
@@ -28,7 +28,10 @@ export default function App() {
           <Route path="/games" element={<GamePage />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/department" element={<DepartmentsPage />} />
+          {/* detalles de los departamentos  */}
           <Route path="/department/:ciudad" element={<DepartmentsDetails />} />
+
+          {/* mostrar los municipios */}
           <Route
             path="/department/:departmentSlug/municipios/:municipioSlug"
             element={<MunicipalityPage />}
@@ -49,12 +52,12 @@ export default function App() {
             element={<GastronomiaDetail tabla="comida" />}
           />
           <Route
-            path="/department/:departmentSlug/artes/:slug"
+            path="/department/:departmentSlug/artes_y_tradiciones/:slug"
             element={<TradicionesDetail tabla="artes_y_tradiciones" />}
           />
           <Route
             path="/department/:departmentSlug/gente_y_sociedad/:slug"
-            element={<SociedadDetail  />}
+            element={<SociedadDetail />}
           />
         </Routes>
         <Footer />
