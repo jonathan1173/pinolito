@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../../../services/supabaseClient";
 import CultureCard from "./CultureCard";
 
-export default function CultureSection({ departamentoId, departmentSlug, tabla }) {
+export default function CultureSection({
+  departamentoId,
+  departmentSlug,
+  tabla,
+  categoria, // <- agregamos la categoría
+}) {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -22,7 +27,7 @@ export default function CultureSection({ departamentoId, departmentSlug, tabla }
 
         const normalized = data.map((d) => ({
           id: d.id,
-          nombre: d.nombre ,
+          nombre: d.nombre,
           imagen_url: d.imagen_url,
           slug: d.slug,
         }));
@@ -42,7 +47,7 @@ export default function CultureSection({ departamentoId, departmentSlug, tabla }
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error al cargar la sección.</p>;
   if (!items.length) return <p>No hay elementos disponibles.</p>;
-
+  // console.log(categoria);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {items.map((item) => (
@@ -50,8 +55,9 @@ export default function CultureSection({ departamentoId, departmentSlug, tabla }
           key={item.id}
           titulo={item.nombre}
           imagen_url={item.imagen_url}
-          slug={item.slug}
           departmentSlug={departmentSlug}
+          slug={item.slug}
+          categoria={categoria} // <- usamos la categoría para generar la ruta correcta
         />
       ))}
     </div>

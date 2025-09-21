@@ -21,6 +21,8 @@ export default function DepartmentCultureTabs({ departamentoId, departmentSlug }
     society: "gente_y_sociedad",
   };
 
+  const categoriaActual = tabMapping[activeTab];
+
   return (
     <div className="w-full">
       <div className="relative flex md:justify-center overflow-x-auto border-b mb-4">
@@ -47,7 +49,8 @@ export default function DepartmentCultureTabs({ departamentoId, departmentSlug }
         <CultureSection
           departamentoId={departamentoId}
           departmentSlug={departmentSlug}
-          tabla={tabMapping[activeTab]}
+          tabla={categoriaActual}   // aquí va la tabla/categoría
+          categoria={categoriaActual} // pasamos la categoría a las tarjetas
         />
       </div>
     </div>
