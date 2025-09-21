@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import HistorySection from "./HistorySection";
-import GastronomySection from "./GastronomySection";
-import TraditionsSection from "./TraditionsSection";
-import TourismSection from "./TourismSection";
-import SocietySection from "./SocietySection";
+import CultureSection from "./CultureSection";
 
 export default function DepartmentCultureTabs({ departamentoId, departmentSlug }) {
   const [activeTab, setActiveTab] = useState("history");
@@ -17,21 +13,12 @@ export default function DepartmentCultureTabs({ departamentoId, departmentSlug }
     { id: "society", label: "Sociedad" },
   ];
 
-  const renderTab = () => {
-    switch (activeTab) {
-      case "history":
-        return <HistorySection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
-      case "gastronomy":
-        return <GastronomySection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
-      case "traditions":
-        return <TraditionsSection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
-      case "tourism":
-        return <TourismSection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
-      case "society":
-        return <SocietySection departamentoId={departamentoId} departmentSlug={departmentSlug} />;
-      default:
-        return null;
-    }
+  const tabMapping = {
+    history: "historia",
+    gastronomy: "comida",
+    traditions: "artes_y_tradiciones",
+    tourism: "lugares",
+    society: "gente_y_sociedad",
   };
 
   return (
@@ -56,7 +43,13 @@ export default function DepartmentCultureTabs({ departamentoId, departmentSlug }
         ))}
       </div>
 
-      <div className="px-5 md:px-19 mb-4">{renderTab()}</div>
+      <div className="px-5 md:px-19 mb-4">
+        <CultureSection
+          departamentoId={departamentoId}
+          departmentSlug={departmentSlug}
+          tabla={tabMapping[activeTab]}
+        />
+      </div>
     </div>
   );
 }
