@@ -4,7 +4,8 @@
       12.1364,
       -86.2514
     ],
-    "descripcion": "Managua, capital de Nicaragua, combina historia reciente y modernidad a orillas del lago Xolotlán."
+    "descripcion": "Managua, capital de Nicaragua, combina historia reciente y modernidad a orillas del lago Xolotlán.",
+    "slug":"managua"
     
   },
   "León": {
@@ -12,7 +13,8 @@
       12.4356,
       -86.8797
     ],
-    "descripcion": "León, antigua capital, cuna de la universidad más antigua del país y de gran tradición cultural y religiosa."
+    "descripcion": "León, antigua capital, cuna de la universidad más antigua del país y de gran tradición cultural y religiosa.",
+    "slug":"leon"
   },
   "Masaya": {
     "coords": [

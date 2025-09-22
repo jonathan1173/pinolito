@@ -1,8 +1,30 @@
 {
   "leon": [
-    { "nombre": "León", "slug": "leon", "coords": [12.4375, -86.8789] }
+    {
+      "nombre": "León",
+      "slug": "leon",
+      "coords": [12.4375, -86.8789],
+      "descripcion": "León, antigua capital de Nicaragua..."
+    },
+    {
+      "nombre": "Telica",
+      "slug": "telica",
+      "coords": [12.4500, -86.9000],
+      "descripcion": "Telica, municipio cercano al volcán del mismo nombre..."
+    },
+    {
+      "nombre": "Nagarote",
+      "slug": "nagarote",
+      "coords": [12.4505, -86.8500],
+      "descripcion": "Nagarote, famoso por su arquitectura colonial..."
+    }
   ],
   "managua": [
-    { "nombre": "Managua", "slug": "managua", "coords": [12.1364, -86.2514] }
+    {
+      "nombre": "Managua",
+      "slug": "managua",
+      "coords": [12.1364, -86.2514],
+      "descripcion": "Managua, capital de Nicaragua..."
+    }
   ]
 }

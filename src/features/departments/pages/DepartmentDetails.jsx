@@ -3,8 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import DepartmentHero from "../components/DepartamentHero";
-import DepartmentMap from "../components/DepartmentMap";
 import DepartmentCultureTabs from "../components/culture/DepartmentCultureTabs";
+import Map from "../../../shared/components/Map";
 
 const DepartmentSkills = lazy(() => import("../components/DepartmentSkills"));
 const DepartmentsLogros = lazy(() => import("../components/DepartmentsLogos"));
@@ -28,7 +28,9 @@ export default function DepartmentDetails() {
 
         const url = `${
           import.meta.env.VITE_SUPABASE_URL
-        }/rest/v1/departamentos?select=id,nombre,descripcion,imagen_url,poblacion,area_km2,slug&slug=eq.${ciudad}`;
+        }/rest/v1/departamentos?select=id,nombre,descripcion,imagen_url,poblacion,area_km2,slug&slug=eq.${encodeURIComponent(
+          ciudad
+        )}`;
         const { data } = await axios.get(url, {
           headers: {
             apikey: import.meta.env.VITE_SUPABASE_KEY,
@@ -130,7 +132,7 @@ export default function DepartmentDetails() {
             </div>
           </section>
 
-          <DepartmentMap ciudad={departamento} />
+          <Map mode="municipios" ciudad={departamento} />
 
           {/* Logros */}
           <article className="bg-white rounded-lg shadow border border-black">
