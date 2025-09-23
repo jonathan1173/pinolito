@@ -11,7 +11,9 @@ export default function HomePage() {
     <div>
       <Hero />
       <AboutUs />
-      <Map mode="departamentos" />
+      <div className="mx-4 md:mx-20">
+        <Map mode="departamentos" />
+      </div>
       <Details />
       <HorizontalScrollSection />
       <Vision />

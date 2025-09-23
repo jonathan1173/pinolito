@@ -119,7 +119,6 @@ export default function CultureSlider() {
           >
             <span
               className={`block drop-shadow-2xl ${currentSection.titleColor}`}
-              style={{ WebkitTextStroke: "1px white" }}
             >
               Tesoros de nuestra identidad cultural
             </span>
