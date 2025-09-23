@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function Hero() {
   const [windowDimensions, setWindowDimensions] = useState({
@@ -112,8 +113,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.6 }}
         >
           {/* Primary Button */}
-          <a
-            href="/games"
+          <Link
+            to="/games"
             className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-blue-400/30 text-sm sm:text-base"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -122,11 +123,11 @@ export default function Hero() {
               Explora Juegos
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-          </a>
+          </Link>
 
           {/* Secondary Button */}
-          <a
-            href="/department"
+          <Link
+            to="/department"
             className="group relative overflow-hidden bg-gradient-to-r from-green-700 to-green-600 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-green-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-green-400/30 text-sm sm:text-base"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -134,7 +135,7 @@ export default function Hero() {
               Ver Departamentos
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
