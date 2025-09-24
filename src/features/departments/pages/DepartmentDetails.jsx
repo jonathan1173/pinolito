@@ -79,28 +79,34 @@ export default function DepartmentDetails() {
     );
 
   return (
-    <main className="">
+    <main className=" bg-gradient-to-t from-blue-800  to-blue-100">
       {/* Hero */}
       <DepartmentHero department={departamento} />
 
       {/* Datos básicos */}
       <section className="max-w-6xl mx-auto px-4  sm:px-6 lg:px-8 py-8 space-y-6">
-        <dl className=" grid grid-cols-1 sm:grid-cols-2 gap-6 bg-white border border-black rounded-2xl p-1 shadow-md">
+        <dl className="bg-white grid grid-cols-2 sm:grid-cols-3 gap-2  rounded-2xl p-4 shadow-md">
           <div className="text-center">
-            <dt className="text-sm font-medium text-gray-500">Población</dt>
+            <dt className="text-sm font-medium text-black">Población</dt>
             <dd className="mt-1 text-lg font-semibold text-gray-900">
               {departamento.poblacion}
             </dd>
           </div>
           <div className="text-center">
-            <dt className="text-sm font-medium text-gray-500">Área</dt>
+            <dt className="text-sm font-medium text-black">Área</dt>
             <dd className="mt-1 text-lg font-semibold text-gray-900">
               {departamento.area_km2} km²
             </dd>
           </div>
+          <div className="text-center">
+            <dt className="text-sm font-medium text-black">Altitud</dt>
+            <dd className="mt-1 text-lg font-semibold text-gray-900">
+             100 m
+            </dd>
+          </div>
         </dl>
 
-        <article className="bg-white p-6 rounded-2xl shadow-md border border-black">
+        <article className="bg-white p-6 rounded-2xl shadow-md ">
           <h2 className="text-2xl font-bold mb-4">Descripción</h2>
           <p className="text-gray-800 leading-relaxed text-justify">
             {departamento.descripcion}
@@ -117,40 +123,23 @@ export default function DepartmentDetails() {
         }
       >
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-          {/* Habilidades + Mapa */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex flex-col h-72 ">
-              <DepartmentSkills departamentoId={departamento.id} />
-            </div>
-
-            <div className="flex flex-col h-72">
-              <img
-                src="/ometepe.jpg"
-                alt="Ometepe"
-                className="w-full h-full object-cover rounded-lg border border-black"
-              />
-            </div>
-          </section>
+          {/* Habilidades + Descripcion de las Habilidades */}
+          <DepartmentSkills departamentoId={departamento.id} />
 
           <Map mode="municipios" ciudad={departamento} />
 
           {/* Logros */}
-          <article className="bg-white rounded-lg shadow border border-black">
-            <DepartmentsLogros
-              ciudad={departamento}
-              departamentoId={departamento.id}
-            />
-          </article>
-        </section>
-
-        <section className="py-8">
+          <DepartmentsLogros
+            ciudad={departamento}
+            departamentoId={departamento.id}
+          />
           <DepartmentCultureTabs
             departamentoId={departamento.id}
             departmentSlug={departamento.slug}
           />
         </section>
 
-        <section className="">
+        <section>
           <RecentExperiences departamentoId={departamento.id} />
         </section>
       </Suspense>

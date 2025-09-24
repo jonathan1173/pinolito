@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { supabase } from "../../../services/supabaseClient"; 
 import { Trophy } from "lucide-react";
 
 export default function DepartmentAchievements({ departamentoId, municipioId }) {
@@ -11,17 +11,15 @@ export default function DepartmentAchievements({ departamentoId, municipioId }) 
         if (!departamentoId && !municipioId) return;
 
         const filter = departamentoId
-          ? `departamento_id=eq.${departamentoId}`
-          : `municipio_id=eq.${municipioId}`;
+          ? { departamento_id: departamentoId }
+          : { municipio_id: municipioId };
 
-        const url = `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/reconocimientos?select=nombre,anio,institucion_otorgante&${filter}`;
-        const { data } = await axios.get(url, {
-          headers: {
-            apikey: import.meta.env.VITE_SUPABASE_KEY,
-            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
-          },
-        });
+        const { data, error } = await supabase
+          .from("reconocimientos")
+          .select("nombre, anio, institucion_otorgante")
+          .match(filter);
 
+        if (error) throw error;
         setReconocimientos(data || []);
       } catch (error) {
         console.error("Error al cargar reconocimientos:", error);
@@ -33,24 +31,32 @@ export default function DepartmentAchievements({ departamentoId, municipioId }) 
   }, [departamentoId, municipioId]);
 
   return (
-    <div className="bg-blue-400 rounded-lg shadow p-6">
-      <h2 className="flex items-center mb-4 text-lg font-bold">
-        <span className="mr-2"><Trophy color="black" /></span> Reconocimientos
+    <article className="bg-blue-50 rounded-2xl shadow-md p-6 border border-blue-200">
+      <h2 className="flex items-center mb-6 text-xl font-bold text-blue-800">
+        <Trophy className="w-6 h-6 mr-2 text-blue-700" />
+        Reconocimientos
       </h2>
 
       {reconocimientos.length === 0 ? (
-        <p className="text-gray-500">No hay reconocimientos registrados.</p>
+        <p className="text-gray-600 italic">
+          No hay reconocimientos registrados.
+        </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {reconocimientos.map((rec, index) => (
-            <div key={index} className="bg-gray-100 p-3 rounded-lg text-center">
-              <p className="font-semibold">{rec.nombre}</p>
-              <p className="text-sm text-gray-600">{rec.anio}</p>
-              <p className="text-sm text-gray-600">{rec.institucion_otorgante}</p>
+            <div
+              key={index}
+              className="bg-white border-l-4 border-blue-500 p-4 rounded-lg shadow-sm hover:shadow-md transition"
+            >
+              <p className="font-semibold text-gray-900">{rec.nombre}</p>
+              <p className="text-sm text-gray-700">{rec.anio}</p>
+              <p className="text-sm text-gray-600">
+                {rec.institucion_otorgante}
+              </p>
             </div>
           ))}
         </div>
       )}
-    </div>
+    </article>
   );
 }

@@ -38,7 +38,7 @@ export default function RecentExperiences({ departamentoId }) {
   if (loading) return <p className="text-center">Cargando experiencias...</p>;
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center mb-8">
           Experiencias Recientes
@@ -53,7 +53,7 @@ export default function RecentExperiences({ departamentoId }) {
             {experiencias.map((exp) => (
               <div
                 key={exp.id}
-                className="bg-white rounded-lg shadow p-4 flex-shrink-0 w-72 flex flex-col"
+                className="bg-white rounded-lg shadow border-2 border-green-800 p-4 flex-shrink-0 w-72 flex flex-col"
               >
                 {exp.imagen_url && (
                   <img
