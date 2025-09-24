@@ -16,7 +16,7 @@ export default function HomePage() {
       </div>
       <Details />
       <HorizontalScrollSection />
-      <Vision />
+        {/* <Vision /> */}
     </div>
   );
 }
