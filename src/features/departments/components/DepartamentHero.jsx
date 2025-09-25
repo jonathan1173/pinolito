@@ -3,11 +3,11 @@ import { ArrowLeft } from "lucide-react";
 
 export default function DepartementHero({ department }) {
   return (
-    <section className="relative">
+    <section className="relative border-b-4 border-white">
       <img
         src={department.imagen_url}
         alt={department.nombre}
-        className="w-full h-64 md:h-80 object-cover bg-black/40"
+        className="w-full h-64 md:h-80 object-center object-cover bg-black/40"
       />
       <div className="absolute inset-0 bg-black/40" />
       <div className="absolute inset-0 flex items-center">
