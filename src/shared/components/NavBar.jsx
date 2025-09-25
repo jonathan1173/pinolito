@@ -52,13 +52,10 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 shadow-sm transition-transform group-hover:scale-105">
-              <span className="text-lg font-bold text-white">P</span>
+          <Link to="/" className="flex items-center space-x-3 group h-full ">
+            <div className="flex h-full items-center justify-center transition-transform ">
+              <img src="/LogoNombre.png" alt="Logo" className="h-full w-auto object-cover" />
             </div>
-            <span className="text-xl font-bold text-stone-800 hidden sm:block">
-              Pinolito
-            </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">
