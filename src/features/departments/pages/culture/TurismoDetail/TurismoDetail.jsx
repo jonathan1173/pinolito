@@ -1,12 +1,24 @@
-"use client"
+"use client";
 
-import { useDetalle } from "../../../hooks/useDetalle"
-import { useParams } from "react-router-dom"
-import { MapPin, Clock, DollarSign, Star, Share2, Heart, Camera, Navigation, Phone, Globe } from "lucide-react"
+import { useDetalle } from "../../../hooks/useDetalle";
+import { useParams } from "react-router-dom";
+import {
+  MapPin,
+  Clock,
+  DollarSign,
+  Star,
+  Share2,
+  Heart,
+  Camera,
+  Navigation,
+  Phone,
+  Globe,
+} from "lucide-react";
+import CultureHero from "../CultureHero";
 
 export default function TurismoDetail() {
-  const { slug } = useParams()
-  const { item, loading, error } = useDetalle({ tabla: "lugares", slug })
+  const { slug } = useParams();
+  const { item, loading, error } = useDetalle({ tabla: "lugares", slug });
 
   if (loading) {
     return (
@@ -21,7 +33,7 @@ export default function TurismoDetail() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -32,13 +44,18 @@ export default function TurismoDetail() {
             <Camera className="h-16 w-16 mx-auto opacity-50" />
           </div>
           <h2 className="text-xl font-semibold mb-2">Error al cargar</h2>
-          <p className="text-muted-foreground">No pudimos cargar la información del lugar turístico.</p>
-          <button className="mt-4 px-4 py-2 bg-primary text-white rounded" onClick={() => window.location.reload()}>
+          <p className="text-muted-foreground">
+            No pudimos cargar la información del lugar turístico.
+          </p>
+          <button
+            className="mt-4 px-4 py-2 bg-primary text-white rounded"
+            onClick={() => window.location.reload()}
+          >
             Intentar de nuevo
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   if (!item) {
@@ -49,62 +66,25 @@ export default function TurismoDetail() {
             <MapPin className="h-16 w-16 mx-auto opacity-50" />
           </div>
           <h2 className="text-xl font-semibold mb-2">Lugar no encontrado</h2>
-          <p className="text-muted-foreground">El lugar turístico que buscas no existe o ha sido removido.</p>
-          <button className="mt-4 px-4 py-2 bg-primary text-white rounded" onClick={() => window.history.back()}>
+          <p className="text-muted-foreground">
+            El lugar turístico que buscas no existe o ha sido removido.
+          </p>
+          <button
+            className="mt-4 px-4 py-2 bg-primary text-white rounded"
+            onClick={() => window.history.back()}
+          >
             Volver atrás
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative h-96 md:h-[500px] overflow-hidden">
-        {item.imagen_url ? (
-          <>
-            <img src={item.imagen_url} alt={item.nombre} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-          </>
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-            <Camera className="h-24 w-24 text-primary-foreground opacity-50" />
-          </div>
-        )}
 
-        {/* Overlay con título */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-          <div className="max-w-4xl mx-auto">
-            <span className="inline-block px-3 py-1 text-sm bg-primary text-white rounded">
-              Lugar Turístico
-            </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">{item.nombre}</h1>
-            <div className="flex items-center gap-4 text-white/90">
-              {item.ubicacion && (
-                <div className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4" />
-                  <span className="text-sm">{item.ubicacion}</span>
-                </div>
-              )}
-              <div className="flex items-center gap-1">
-                <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                <span className="text-sm">4.8 (124 reseñas)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Botones flotantes */}
-        <div className="absolute top-6 right-6 flex gap-2">
-          <button className="p-2 bg-white/90 rounded-full hover:bg-white">
-            <Heart className="h-4 w-4" />
-          </button>
-          <button className="p-2 bg-white/90 rounded-full hover:bg-white">
-            <Share2 className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
+      <CultureHero item={item} />
 
       {/* Contenido */}
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -113,9 +93,13 @@ export default function TurismoDetail() {
           <div className="lg:col-span-2 space-y-8">
             {/* Descripción */}
             <div className="border rounded-lg p-6">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">Acerca de este lugar</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">
+                Acerca de este lugar
+              </h2>
               <p>
-                {item.descripcion || item.contenido || "Un hermoso lugar turístico que vale la pena visitar."}
+                {item.descripcion ||
+                  item.contenido ||
+                  "Un hermoso lugar turístico que vale la pena visitar."}
               </p>
             </div>
 
@@ -124,7 +108,10 @@ export default function TurismoDetail() {
               <h3 className="text-xl font-semibold mb-4">Galería de fotos</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="aspect-square bg-muted rounded-lg overflow-hidden group cursor-pointer">
+                  <div
+                    key={i}
+                    className="aspect-square bg-muted rounded-lg overflow-hidden group cursor-pointer"
+                  >
                     <img
                       src={`/placeholder.svg?height=200&width=200&query=tourist destination ${i}`}
                       alt={`Vista ${i} de ${item.nombre}`}
@@ -140,9 +127,21 @@ export default function TurismoDetail() {
               <h3 className="text-xl font-semibold mb-4">Reseñas</h3>
               <div className="space-y-4">
                 {[
-                  { name: "María González", rating: 5, comment: "¡Increíble experiencia!" },
-                  { name: "Carlos Rodríguez", rating: 4, comment: "Muy recomendable, vistas espectaculares." },
-                  { name: "Ana López", rating: 5, comment: "Un lugar mágico que volveré a visitar." },
+                  {
+                    name: "María González",
+                    rating: 5,
+                    comment: "¡Increíble experiencia!",
+                  },
+                  {
+                    name: "Carlos Rodríguez",
+                    rating: 4,
+                    comment: "Muy recomendable, vistas espectaculares.",
+                  },
+                  {
+                    name: "Ana López",
+                    rating: 5,
+                    comment: "Un lugar mágico que volveré a visitar.",
+                  },
                 ].map((r, i) => (
                   <div key={i} className="border-b pb-4 last:border-0">
                     <div className="flex items-center gap-2 mb-2">
@@ -153,7 +152,10 @@ export default function TurismoDetail() {
                         <p className="font-medium text-sm">{r.name}</p>
                         <div className="flex gap-1">
                           {[...Array(r.rating)].map((_, j) => (
-                            <Star key={j} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                            <Star
+                              key={j}
+                              className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                            />
                           ))}
                         </div>
                       </div>
@@ -162,21 +164,27 @@ export default function TurismoDetail() {
                   </div>
                 ))}
               </div>
-              <button className="w-full mt-4 border px-4 py-2 rounded">Ver todas las reseñas</button>
+              <button className="w-full mt-4 border px-4 py-2 rounded">
+                Ver todas las reseñas
+              </button>
             </div>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             <div className="border rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-4">Información práctica</h3>
+              <h3 className="text-lg font-semibold mb-4">
+                Información práctica
+              </h3>
               <div className="space-y-4">
                 {item.horario && (
                   <div className="flex gap-3">
                     <Clock className="h-5 w-5 text-primary mt-0.5" />
                     <div>
                       <p className="font-medium text-sm">Horarios</p>
-                      <p className="text-sm text-muted-foreground">{item.horario}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.horario}
+                      </p>
                     </div>
                   </div>
                 )}
@@ -185,7 +193,9 @@ export default function TurismoDetail() {
                     <DollarSign className="h-5 w-5 text-primary mt-0.5" />
                     <div>
                       <p className="font-medium text-sm">Precio</p>
-                      <p className="text-sm text-muted-foreground">{item.precio_referencia}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.precio_referencia}
+                      </p>
                     </div>
                   </div>
                 )}
@@ -194,7 +204,9 @@ export default function TurismoDetail() {
                     <MapPin className="h-5 w-5 text-primary mt-0.5" />
                     <div>
                       <p className="font-medium text-sm">Ubicación</p>
-                      <p className="text-sm text-muted-foreground">{item.ubicacion}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.ubicacion}
+                      </p>
                     </div>
                   </div>
                 )}
@@ -232,7 +244,9 @@ export default function TurismoDetail() {
                   >
                     <div>
                       <p className="font-medium text-sm">{p.name}</p>
-                      <p className="text-xs text-muted-foreground">{p.distance}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {p.distance}
+                      </p>
                     </div>
                     <Navigation className="h-4 w-4 text-primary" />
                   </div>
@@ -243,5 +257,5 @@ export default function TurismoDetail() {
         </div>
       </div>
     </div>
-  )
+  );
 }

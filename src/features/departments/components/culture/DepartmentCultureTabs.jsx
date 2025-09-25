@@ -34,7 +34,7 @@ export default function DepartmentCultureTabs({
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`rounded-t-2xl flex-shrink-0 px-4 py-2 whitespace-nowrap relative z-10 font-medium transition-colors duration-300 ${
-              activeTab === tab.id ? "bg-blue-500 text-white" : "text-black"
+              activeTab === tab.id ? "bg-[#2C2C2C] text-white" : "text-black"
             }`}
           >
             {tab.label}

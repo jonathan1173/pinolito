@@ -3,6 +3,8 @@
 import { useDetalle } from "../../../hooks/useDetalle"
 import { useParams } from "react-router-dom"
 import { Calendar, User, BookOpen, Clock, MapPin, Scroll } from "lucide-react"
+import CultureHero from "../CultureHero"
+
 
 export default function HistoriaDetail() {
   const { slug } = useParams()
@@ -50,6 +52,9 @@ export default function HistoriaDetail() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
+      <CultureHero item={item} />
+
+
       <div className="relative bg-gradient-to-b from-muted to-background">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=1200')] opacity-5"></div>
         <div className="relative max-w-7xl mx-auto px-4 py-16 text-center">

@@ -1,23 +1,34 @@
-"use client"
+"use client";
 
-import { useDetalle } from "../../../hooks/useDetalle"
-import { useParams } from "react-router-dom"
-import { Clock, Users, ChefHat, Leaf, Star, MapPin, Calendar } from "lucide-react"
+import { useDetalle } from "../../../hooks/useDetalle";
+import { useParams } from "react-router-dom";
+import {
+  Clock,
+  Users,
+  ChefHat,
+  Leaf,
+  Star,
+  MapPin,
+  Calendar,
+} from "lucide-react";
+import CultureHero from "../CultureHero";
 
 export default function GastronomiaDetail() {
-  const params = useParams()
-  const slug = params?.slug 
-  const { item, loading, error } = useDetalle({ tabla: "comida", slug })
+  const params = useParams();
+  const slug = params?.slug;
+  const { item, loading, error } = useDetalle({ tabla: "comida", slug });
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-lime-50">
         <div className="text-center">
           <ChefHat className="w-12 h-12 text-primary mx-auto mb-4 animate-pulse" />
-          <p className="text-lg text-muted-foreground">Preparando el plato...</p>
+          <p className="text-lg text-muted-foreground">
+            Preparando el plato...
+          </p>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -28,7 +39,7 @@ export default function GastronomiaDetail() {
           <p className="text-lg text-destructive">Error al cargar el plato</p>
         </div>
       </div>
-    )
+    );
   }
 
   if (!item) {
@@ -39,7 +50,7 @@ export default function GastronomiaDetail() {
           <p className="text-lg text-muted-foreground">Plato no encontrado</p>
         </div>
       </div>
-    )
+    );
   }
 
   // Datos de ejemplo
@@ -50,34 +61,34 @@ export default function GastronomiaDetail() {
     origen: "Región Andina",
     temporada: "Todo el año",
     calorias: "320 por porción",
-    ingredientes_principales: ["Maíz", "Queso fresco", "Cilantro", "Ají amarillo"],
+    ingredientes_principales: [
+      "Maíz",
+      "Queso fresco",
+      "Cilantro",
+      "Ají amarillo",
+    ],
     maridaje: ["Chicha morada", "Cerveza artesanal", "Vino blanco seco"],
     historia:
       "Este plato tradicional tiene sus raíces en la época precolombina...",
     chef_recomendacion:
       "Usa ingredientes frescos y locales. El secreto está en el punto exacto de cocción.",
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-lime-50 to-emerald-50">
       {/* Hero */}
-      <div className="relative h-[70vh] overflow-hidden">
-        {item.imagen_url ? (
-          <img src={item.imagen_url} alt={item.nombre} className="w-full h-full object-cover" />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-600 to-lime-600">
-            <ChefHat className="w-32 h-32 text-white/30" />
-          </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+      <CultureHero item={item} />
 
+      {/* Contenido principal */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Info flotante */}
-        <div className="absolute bottom-8 left-8 right-8 max-w-4xl mx-auto bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
+        <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-4">
                 <span className="px-3 py-1 bg-green-200 text-green-800 rounded-full flex items-center gap-2">
-                  <Leaf className="w-4 h-4" /> {item.tipo || "Plato Tradicional"}
+                  <Leaf className="w-4 h-4" />{" "}
+                  {item.tipo || "Plato Tradicional"}
                 </span>
                 <div className="flex text-amber-500">
                   {[...Array(5)].map((_, i) => (
@@ -85,8 +96,12 @@ export default function GastronomiaDetail() {
                   ))}
                 </div>
               </div>
-              <h1 className="text-4xl font-bold text-foreground mb-4">{item.nombre}</h1>
-              <p className="text-lg text-muted-foreground">{item.descripcion}</p>
+              <h1 className="text-4xl font-bold text-foreground mb-4">
+                {item.nombre}
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                {item.descripcion}
+              </p>
             </div>
 
             <div className="flex flex-col gap-3 lg:min-w-[200px]">
@@ -105,23 +120,24 @@ export default function GastronomiaDetail() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Contenido principal */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Ingredientes */}
           <div className="lg:col-span-2 space-y-8">
             <div className="p-8 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <Leaf className="w-6 h-6 text-primary" /> Ingredientes Principales
+                <Leaf className="w-6 h-6 text-primary" /> Ingredientes
+                Principales
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {item.ingredientes ? (
                   <p className="text-muted-foreground">{item.ingredientes}</p>
                 ) : (
                   mockData.ingredientes_principales.map((ingrediente, i) => (
-                    <div key={i} className="p-4 bg-green-50 rounded-lg flex items-center gap-2">
+                    <div
+                      key={i}
+                      className="p-4 bg-green-50 rounded-lg flex items-center gap-2"
+                    >
                       <span className="w-2 h-2 bg-primary rounded-full" />
                       <span>{ingrediente}</span>
                     </div>
@@ -133,7 +149,8 @@ export default function GastronomiaDetail() {
             {/* Historia */}
             <div className="p-8 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <Calendar className="w-6 h-6 text-amber-600" /> Historia y Tradición
+                <Calendar className="w-6 h-6 text-amber-600" /> Historia y
+                Tradición
               </h2>
               <p className="text-muted-foreground">{mockData.historia}</p>
             </div>
@@ -170,7 +187,10 @@ export default function GastronomiaDetail() {
               <h3 className="text-xl font-bold mb-4">Maridaje Recomendado</h3>
               <div className="space-y-2">
                 {mockData.maridaje.map((bebida, i) => (
-                  <div key={i} className="p-3 bg-green-50 rounded-lg flex items-center gap-2">
+                  <div
+                    key={i}
+                    className="p-3 bg-green-50 rounded-lg flex items-center gap-2"
+                  >
                     <span className="w-2 h-2 bg-secondary rounded-full" />
                     <span>{bebida}</span>
                   </div>
@@ -189,6 +209,7 @@ export default function GastronomiaDetail() {
           </div>
         </div>
       </div>
+
     </div>
-  )
+  );
 }

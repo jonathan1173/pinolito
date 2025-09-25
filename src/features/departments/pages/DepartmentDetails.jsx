@@ -79,7 +79,7 @@ export default function DepartmentDetails() {
     );
 
   return (
-    <main className=" bg-gradient-to-t from-blue-800  to-blue-100">
+    <main className="bg-[#39C2FF]">
       {/* Hero */}
       <DepartmentHero department={departamento} />
 

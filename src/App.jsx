@@ -18,10 +18,14 @@ import TurismoDetail from "./features/departments/pages/culture/TurismoDetail/Tu
 import TradicionesDetail from "./features/departments/pages/culture/TradicionesDetail/TradicionesDetail";
 import GastronomiaDetail from "./features/departments/pages/culture/GastronomiaDetail/GastronomiaDetail";
 
+// hooks
+import ScrollToTop from "./shared/hooks/ScrollToTop";
+
 export default function App() {
   return (
     <Router>
       <>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
