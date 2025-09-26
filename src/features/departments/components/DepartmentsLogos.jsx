@@ -32,8 +32,8 @@ export default function DepartmentAchievements({ departamentoId, municipioId }) 
 
   return (
     <article className="bg-blue-50 rounded-2xl shadow-md p-6 border border-blue-200">
-      <h2 className="flex items-center mb-6 text-xl font-bold text-blue-800">
-        <Trophy className="w-6 h-6 mr-2 text-blue-700" />
+      <h2 className="flex items-center mb-6 text-xl font-bold text-[#2c2c2c]">
+        <Trophy className="w-6 h-6 mr-2 text-[#2c2c2c]" />
         Reconocimientos
       </h2>
 
@@ -46,7 +46,7 @@ export default function DepartmentAchievements({ departamentoId, municipioId }) 
           {reconocimientos.map((rec, index) => (
             <div
               key={index}
-              className="bg-white border-l-4 border-blue-500 p-4 rounded-lg shadow-sm hover:shadow-md transition"
+              className="bg-white border-l-4 border-[#39C2FF]  p-4 rounded-lg shadow-sm hover:shadow-md transition"
             >
               <p className="font-semibold text-gray-900">{rec.nombre}</p>
               <p className="text-sm text-gray-700">{rec.anio}</p>

@@ -41,7 +41,9 @@ export default function DepartmentSkills({ departamentoId }) {
   }, [departamentoId]);
 
   if (loading)
-    return <p className="text-center py-3 text-blue-700">Cargando habilidades...</p>;
+    return (
+      <p className="text-center py-3 text-[#39C2FF]">Cargando habilidades...</p>
+    );
 
   // Agrupado por nombre
   const groupedData = habilidades.reduce((acc, h) => {
@@ -72,7 +74,7 @@ export default function DepartmentSkills({ departamentoId }) {
         className="flex flex-col h-80 bg-white rounded-xl shadow-md border border-gray-200"
         whileHover={{ scale: 1.01 }}
       >
-        <h2 className="text-lg text-blue-800 font-semibold my-3 text-center">
+        <h2 className="text-lg text-[#2c2c2c] font-semibold my-3 text-center">
           Sectores Económicos
         </h2>
         <div className="flex-1 w-full">
@@ -108,7 +110,7 @@ export default function DepartmentSkills({ departamentoId }) {
 
       {/* Imagen o descripción */}
       <motion.div
-        className="flex flex-col h-80 bg-white rounded-xl shadow-md border border-gray-200 p-4 overflow-y-auto"
+        className="flex flex-col h-80 bg-white rounded-xl shadow-md p-4 overflow-y-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -116,7 +118,9 @@ export default function DepartmentSkills({ departamentoId }) {
           <>
             <div className="flex items-center gap-2 mb-3">
               <Info className="text-green-700 w-5 h-5" />
-              <h3 className="text-lg font-bold text-green-800">{selectedSkill.name}</h3>
+              <h3 className="text-lg font-bold text-green-800">
+                {selectedSkill.name}
+              </h3>
             </div>
             <p className="text-gray-700 leading-relaxed">
               {selectedSkill.descripcion || "Sin descripción disponible."}

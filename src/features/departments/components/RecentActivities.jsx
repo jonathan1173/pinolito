@@ -53,7 +53,7 @@ export default function RecentExperiences({ departamentoId }) {
             {experiencias.map((exp) => (
               <div
                 key={exp.id}
-                className="bg-white rounded-lg shadow border-2 border-green-800 p-4 flex-shrink-0 w-72 flex flex-col"
+                className="bg-white rounded-lg shadow border-2 border-[#2c2c2c] p-4 flex-shrink-0 w-72 flex flex-col"
               >
                 {exp.imagen_url && (
                   <img

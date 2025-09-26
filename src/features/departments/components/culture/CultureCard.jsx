@@ -13,7 +13,7 @@ export default function CultureCard({ titulo, imagen_url, departmentSlug, slug, 
         {slug && departmentSlug && categoria && (
           <Link
             to={`/department/${departmentSlug}/${categoria}/${slug}`}
-            className="self-start px-3 py-1 text-blue-600 border border-blue-600 rounded hover:bg-blue-50 transition text-sm"
+            className="self-start px-3 py-1 text-[#2c2c2c] border border-[#2c2c2c] rounded hover:bg-[#ff3069]/40 transition text-sm"
           >
             Ver más
           </Link>

@@ -65,9 +65,9 @@ export default function Map({ mode = "municipios", ciudad }) {
   const center = markers.length ? markers[0].coords : [12.8, -85.0];
 
   return (
-    <section>
+    <section className="p-4 bg-white rounded-2xl">
       <header className="flex items-center justify-center md:justify-start md:px-4 py-2">
-        <h2 className="text-2xl font-bold text-black">
+        <h2 className="text-2xl font-bold text-[#2c2c2c]">
           {mode === "municipios" ? "Sus Municipios" : "Mapa de Departamentos"}
         </h2>
       </header>

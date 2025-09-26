@@ -2,7 +2,7 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-white py-10 ">
+    <footer className="bg-[#2c2c2c] text-white py-10 ">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Redes Sociales */}
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="text-center text-xs text-gray-300 mt-8 border-t border-blue-700 pt-4">
+      <div className="text-center text-xs text-gray-300 mt-8 border-t border-white pt-4">
         © {new Date().getFullYear()} Todos los derechos reservados.
       </div>
     </footer>

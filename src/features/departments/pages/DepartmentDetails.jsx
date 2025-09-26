@@ -65,7 +65,7 @@ export default function DepartmentDetails() {
         <h1 className="text-3xl md:text-4xl font-bold text-red-600 mb-4 text-center">
           Departamento no encontrado
         </h1>
-        <p className="text-gray-600 mb-6 text-center">
+        <p className="text-[#2c2c2c] mb-6 text-center">
           El departamento que buscas no está disponible en nuestra base de
           datos.
         </p>
@@ -79,7 +79,7 @@ export default function DepartmentDetails() {
     );
 
   return (
-    <main className="bg-[#39C2FF]">
+    <main className="bg-gradient-to-tl  from-[#fecf3d]  to-[#ff3069] from-20% ">
       {/* Hero */}
       <DepartmentHero department={departamento} />
 
