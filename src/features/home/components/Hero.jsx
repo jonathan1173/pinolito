@@ -115,7 +115,7 @@ export default function Hero() {
           {/* Primary Button */}
           <Link
             to="/games"
-            className="group relative overflow-hidden bg-gradient-to-r from-[#39C2FF] to-[#39C2FF] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-[#39C2FF]/30 text-sm sm:text-base"
+            className="group relative overflow-hidden bg-[#39C2FF] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-[#39C2FF]/30 text-sm sm:text-base"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#39C2FF] to-[#39C2FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10 flex items-center justify-center gap-2">
@@ -128,9 +128,9 @@ export default function Hero() {
           {/* Secondary Button */}
           <Link
             to="/department"
-            className="group relative overflow-hidden bg-gradient-to-r from-[#FECF3D] to-[#FECF3D] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-green-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-[#FECF3D]/30 text-sm sm:text-base"
+            className="group relative overflow-hidden bg-[#8c52ff] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-green-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-[#8c52ff]/30 text-sm sm:text-base"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FECF3D] to-[#FECF3D] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#8c52ff] to-[#8c52ff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10 flex items-center justify-center gap-2">
               Ver Departamentos
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />

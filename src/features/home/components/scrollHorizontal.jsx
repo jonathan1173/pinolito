@@ -188,39 +188,36 @@ export default function HorizontalScrollSection() {
 
           {/* Panel 2 - Segunda parte del verso */}
           <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center relative overflow-hidden">
-            {/* Fondo dinámico */}
-
-            <div className="absolute inset-0 bg-gradient-to-tl from-darker via-dark to-darker"></div>
 
             {/* Formas geométricas grandes */}
             <motion.div
               initial={{ rotate: 0, scale: 0 }}
               whileInView={{ rotate: 45, scale: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="absolute top-20 left-20 w-40 h-40 border-4 border-[#39C2FF] opacity-20"
+              className="absolute top-20 left-20 w-40 h-40 border-4 border-[#39C2FF] "
             />
             <motion.div
               initial={{ rotate: 0, scale: 0 }}
               whileInView={{ rotate: 45, scale: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="absolute top-10 left-20 w-40 h-40 border-4 border-[#ff3069] opacity-20"
+              className="absolute top-10 left-20 w-40 h-40 border-4 border-[#ff3069] "
             />
             <motion.div
               initial={{ rotate: 0, scale: 0 }}
               whileInView={{ rotate: 45, scale: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="absolute bottom-40 right-20 w-40 h-40 border-4 border-[#39C2FF] opacity-20"
+              className="absolute bottom-40 right-20 w-40 h-40 border-4 border-[#39C2FF] "
             />
             <motion.div
               initial={{ rotate: 0, scale: 0 }}
               whileInView={{ rotate: -30, scale: 1 }}
               transition={{ duration: 2.5, ease: "easeOut", delay: 0.3 }}
-              className="absolute bottom-32 right-32 w-32 h-32 bg-gradient-secondary opacity-30 rounded-full"
+              className="absolute bottom-32 right-32 w-32 h-32 rounded-full"
             />
 
             {/* Líneas dinámicas */}
             <svg
-              className="absolute inset-0 w-full h-full opacity-20"
+              className="absolute inset-0 w-full h-full "
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -305,20 +302,19 @@ export default function HorizontalScrollSection() {
           {/* Panel 3 - Segunda parte del verso */}
           <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center relative overflow-hidden">
             {/* Fondo dinámico */}
-            <div className="absolute inset-0 bg-black"></div>
 
             {/* Formas geométricas grandes */}
             <motion.div
               initial={{ rotate: 0, scale: 0 }}
               whileInView={{ rotate: 45, scale: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="absolute top-20 left-20 w-40 h-40 border-4 border-[#39c2ff] opacity-20"
+              className="absolute top-20 left-20 w-40 h-40 border-4 border-[#39c2ff] "
             />
             <motion.div
               initial={{ rotate: 0, scale: 0 }}
               whileInView={{ rotate: 45, scale: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="absolute bottom-40 right-20 w-40 h-40 border-4 border-[#fecf3d] opacity-20"
+              className="absolute bottom-40 right-20 w-40 h-40 border-4 border-[#fecf3d] "
             />
             <motion.div
               initial={{ rotate: 0, scale: 0 }}
@@ -329,7 +325,7 @@ export default function HorizontalScrollSection() {
 
             {/* Líneas dinámicas */}
             <svg
-              className="absolute inset-0 w-full h-full opacity-20"
+              className="absolute inset-0 w-full h-full "
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -439,7 +435,7 @@ export default function HorizontalScrollSection() {
               initial={{ opacity: 0, y: 50, rotate: 0 }}
               whileInView={{ opacity: 1, y: 0, rotate: 0 }}
               transition={{ delay: 1.3, duration: 0.8 }}
-              className="absolute top-10 left-32 md:right-96 w-32 h-48 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl animate-pulse-glow"
+              className="absolute top-10 left-28 md:right-96 w-32 h-48 md:w-80 md:h-60 rounded-2xl overflow-hidden shadow-2xl animate-pulse-glow"
             >
               <img
                 src="https://www.mapanicaragua.com/wp-content/uploads/2022/02/Mirador-de-Catarina-1.jpg"
@@ -452,7 +448,7 @@ export default function HorizontalScrollSection() {
               initial={{ opacity: 0, y: 50, rotate: -2 }}
               whileInView={{ opacity: 1, y: 0, rotate: -2 }}
               transition={{ delay: 1.6, duration: 0.8 }}
-              className="absolute bottom-30 right-8 md:right-32 w-32 h-24 md:w-80 md:h-60 rounded-2xl overflow-hidden shadow-2xl animate-pulse-glow"
+              className="absolute bottom-30 right-8 md:right-32 w-32 h-24 md:w-70 md:h-60 rounded-2xl overflow-hidden shadow-2xl animate-pulse-glow"
             >
               <img
                 src="https://www.mapanicaragua.com/wp-content/uploads/2022/02/Reserva-Cerro-Wawashang-1.jpg"
@@ -467,7 +463,7 @@ export default function HorizontalScrollSection() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="text-4xl  md:text-8xl font-bold mb-4 p-4 bg-gradient-to-r from-[#ff3069] to-[#39C2FF] to-50% bg-clip-text text-transparent"
+                className="text-4xl  md:text-8xl font-bold mb-4 p-4 bg-[#ff3069]    to-80% bg-clip-text text-transparent"
               >
                 {renderFrase(frasePanel4, true)}
               </motion.h2>
