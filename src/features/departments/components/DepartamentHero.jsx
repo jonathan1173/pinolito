@@ -7,7 +7,7 @@ export default function DepartementHero({ department }) {
       <img
         src={department.imagen_url}
         alt={department.nombre}
-        className="w-full h-64 md:h-80 object-center object-cover bg-black/40"
+        className="w-full h-64 md:h-80 object-center object-cover "
       />
       <div className="absolute inset-0 bg-black/40" />
       <div className="absolute inset-0 flex items-center">

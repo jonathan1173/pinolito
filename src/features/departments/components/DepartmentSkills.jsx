@@ -5,11 +5,12 @@ import {
   Cell,
   Tooltip,
   Legend,
-  ResponsiveContainer,
+  ResponsiveContainer,  
 } from "recharts";
 import { supabase } from "../../../services/supabaseClient";
 import { motion } from "framer-motion";
 import { Info } from "lucide-react";
+import { div } from "framer-motion/client";
 
 export default function DepartmentSkills({ departamentoId }) {
   const [habilidades, setHabilidades] = useState([]);
@@ -117,8 +118,8 @@ export default function DepartmentSkills({ departamentoId }) {
         {selectedSkill ? (
           <>
             <div className="flex items-center gap-2 mb-3">
-              <Info className="text-green-700 w-5 h-5" />
-              <h3 className="text-lg font-bold text-green-800">
+              <Info className="text-[#2c2c2c] w-5 h-5" />
+              <h3 className="text-lg font-bold text-[#2c2c2c]">
                 {selectedSkill.name}
               </h3>
             </div>
@@ -128,16 +129,17 @@ export default function DepartmentSkills({ departamentoId }) {
             <p className="mt-3 text-sm text-gray-600 italic">
               Tipo: {selectedSkill.tipo || "No especificado"}
             </p>
-            <p className="mt-1 text-sm text-blue-700 font-medium">
+            <p className="mt-1 text-sm text-[#39c2ff] font-medium">
               Trabajadores: {selectedSkill.value?.toLocaleString()}
             </p>
           </>
         ) : (
-          <img
-            src="/ometepe.jpg"
-            alt="Ometepe"
-            className="w-full h-full object-cover rounded-lg"
-          />
+          <div className="flex flex-col justify-center items-center h-full text-center gap-2 p-4">
+            <Info className="w-5 h-5 text-[#2c2c2c]" />
+            <span className="text-lg font-medium text-[#2c2c2c]">
+              Toca la gráfica para obtener más información
+            </span>
+          </div>
         )}
       </motion.div>
     </section>
