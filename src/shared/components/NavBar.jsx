@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, Calendar, Gamepad2, Menu, X, User } from "lucide-react";
+import { Home, Calendar, Gamepad2, Menu, X, User, Users } from "lucide-react";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -13,6 +13,7 @@ export function Navbar() {
       icon: <Calendar size={18} />,
     },
     { href: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
+    { href: "/comunidad", label: "Comunidad", icon: <Users size={18} /> },
   ];
 
   const NavbarLink = ({ href, icon, label, onClick }) => (
@@ -27,7 +28,7 @@ export function Navbar() {
   );
 
   const MobileMenu = () => (
-    <div className="md:hidden border-t border-stone-200 bg-white">
+    <div className="lg:hidden border-t border-stone-200 bg-white">
       <div className="container mx-auto px-4 py-4 space-y-2">
         {links.map((link) => (
           <NavbarLink
@@ -52,13 +53,23 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center space-x-3 group h-full ">
-            <div className="flex h-full items-center justify-center transition-transform ">
-              <img src="/LogoNombre.png" alt="Logo" className="h-full w-auto object-cover" />
+          <Link
+            to="/"
+            className="flex items-center space-x-1 group h-full px-1 py-1"
+          >
+            <div className="flex h-6 items-center justify-center transition-transform">
+              <img
+                src="/Logo.png"
+                alt="Logo"
+                className="h-full w-auto object-cover"
+              />
+              <span className="ml-2 select-none">
+                <b className="text-2xl ">PINOLITO</b>
+              </span>
             </div>
           </Link>
-
-          <div className="hidden md:flex items-center space-x-1">
+{/* Links en desktop */}
+          <div className="hidden lg:flex items-center space-x-1">
             {links.map((link) => (
               <NavbarLink
                 key={link.href}
@@ -76,7 +87,7 @@ export function Navbar() {
             </button>
 
             <button
-              className="md:hidden p-2 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
+              className="lg:hidden p-2 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
               onClick={() => setOpen(!open)}
             >
               {open ? <X size={24} /> : <Menu size={24} />}

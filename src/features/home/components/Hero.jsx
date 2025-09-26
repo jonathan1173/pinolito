@@ -25,7 +25,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative py-6 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-green-800 to-amber-900">
+    <section className="relative py-6 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#39C2FF] via-[#8C52FF] to-[#FECF3D]">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.2, opacity: 0 }}
@@ -33,9 +33,9 @@ export default function Hero() {
         transition={{ duration: 3, ease: "easeOut" }}
       >
         <motion.div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center" 
           style={{
-            backgroundImage: `url('./ometepe.jpg')`,
+            backgroundImage: `url('https://www.infobae.com/resizer/v2/QX4DUNSYBZC7DBG6B76AQYLMP4.jpg?auth=cb0f602901bba70bc6ae2abeb1eac7650205c9ab79824ea1c8f6958fad9935af&smart=true&width=992&height=558&quality=85')`,
           }}
           animate={{
             scale: [1, 1.05, 1],
@@ -115,9 +115,9 @@ export default function Hero() {
           {/* Primary Button */}
           <Link
             to="/games"
-            className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-blue-400/30 text-sm sm:text-base"
+            className="group relative overflow-hidden bg-gradient-to-r from-[#39C2FF] to-[#39C2FF] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-[#39C2FF]/30 text-sm sm:text-base"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#39C2FF] to-[#39C2FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10 flex items-center justify-center gap-2">
               <Play className="w-4 h-4 sm:w-5 sm:h-5" />
               Explora Juegos
@@ -128,9 +128,9 @@ export default function Hero() {
           {/* Secondary Button */}
           <Link
             to="/department"
-            className="group relative overflow-hidden bg-gradient-to-r from-green-700 to-green-600 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-green-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-green-400/30 text-sm sm:text-base"
+            className="group relative overflow-hidden bg-gradient-to-r from-[#FECF3D] to-[#FECF3D] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-2xl hover:shadow-green-500/25 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out border border-[#FECF3D]/30 text-sm sm:text-base"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FECF3D] to-[#FECF3D] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10 flex items-center justify-center gap-2">
               Ver Departamentos
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />

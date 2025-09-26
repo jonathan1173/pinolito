@@ -13,15 +13,15 @@ export default function HeroSection() {
           accusantium ab eaque excepturi deserunt vitae illo vero nostrum id,
           consectetur quidem natus.
         </p>
-        <button className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition">
+        <button className="px-6 py-3 bg-[#39C2FF] text-white rounded-lg shadow-md hover:bg-blue-700 transition">
           Call to Action
         </button>
       </div>
 
       {/* Imagen de fondo en mobile */}
       <div
-        className="block lg:hidden w-full h-64 bg-cover bg-center  shadow-xl mt-6"
-        style={{ backgroundImage: "url('/ometepe.jpg')" }}
+        className="block lg:hidden w-full h-64 bg-cover bg-center px-[100px]  shadow-xl mt-6"
+        style={{ backgroundImage: "url('https://www.infobae.com/resizer/v2/CLH6ILNDHNDJ7JBQWDLMIVVHVA.jpg?auth=11bcbc3eaef6bd6bab94d8c35cc46b2a58d8db2852a711092c8a151fc07ab240&smart=true&width=992&height=558&quality=85')" }}
       ></div>
 
       {/* Imágenes flotantes solo en desktop */}
@@ -29,7 +29,7 @@ export default function HeroSection() {
         {/* Imagen superior izquierda */}
         <figure className="absolute top-16 right-60 w-80 z-10">
           <motion.img
-            src="/ometepe.jpg"
+            src="https://www.mapanicaragua.com/wp-content/uploads/2022/02/Cerro-Kilambe-1.jpg"
             alt="Isla Ometepe"
             loading="lazy"
             initial={{ opacity: 0, x: 150 }}
@@ -43,7 +43,7 @@ export default function HeroSection() {
         {/* Imagen inferior izquierda */}
         <figure className="absolute bottom-16 right-60 w-96 z-20">
           <motion.img
-            src="/ometepe.jpg"
+            src="https://www.mapanicaragua.com/wp-content/uploads/2022/02/El-Castillo-Rio-San-Juan-1.jpg"
             alt="Vista de Ometepe"
             loading="lazy"
             initial={{ opacity: 0, x: 150 }}
@@ -62,7 +62,7 @@ export default function HeroSection() {
         {/* Imagen inferior derecha */}
         <figure className="absolute bottom-24 right-0 w-80 z-20">
           <motion.img
-            src="/ometepe.jpg"
+            src="https://www.mapanicaragua.com/wp-content/uploads/2022/02/Archipielago-de-Solentiname-1.jpg"
             alt="Paisaje de Ometepe"
             loading="lazy"
             initial={{ opacity: 0, x: 150 }}
@@ -81,7 +81,7 @@ export default function HeroSection() {
         {/* Imagen superior derecha */}
         <figure className="absolute top-24 right-16 w-72 z-30">
           <motion.img
-            src="/ometepe.jpg"
+            src="https://www.mapanicaragua.com/wp-content/uploads/2022/02/Reserva-de-biosfera-Isla-de-Ometepe-2.jpg"
             alt="Paisaje de Ometepe"
             loading="lazy"
             initial={{ opacity: 0, x: 150 }}
