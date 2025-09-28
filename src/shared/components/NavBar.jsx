@@ -13,7 +13,7 @@ export function Navbar() {
       icon: <Calendar size={18} />,
     },
     { href: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
-    { href: "/comunidad", label: "Comunidad", icon: <Users size={18} /> },
+    // { href: "/comunidad", label: "Comunidad", icon: <Users size={18} /> },
   ];
 
   const NavbarLink = ({ href, icon, label, onClick }) => (
