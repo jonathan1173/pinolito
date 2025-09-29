@@ -2,7 +2,7 @@
 
 **Pinolito** es una aplicación web interactiva desarrollada con **React(JS) + Vite** que permite explorar la riqueza cultural de los departamentos de Nicaragua apoyada en mapas y una interfaz dinámica.
 
-Permite explorar la riqueza cultural de Nicaragua, mostrando información organizada por **departamentos y municipios**, en categorías como: **historia, gastronomía, tradiciones, turismo y sociedad** incluyendo un **calendario** para ver los eventos en los diferentes departamentos. Además de incluir un apartado de **juegos** interactivos para fomentar el aprendizaje.
+Permite explorar la riqueza cultural de Nicaragua, mostrando información organizada por departamentos y municipios, en categorías como: **historia, gastronomía, tradiciones, turismo y sociedad** incluyendo un **calendario** para ver los eventos en los diferentes departamentos. Además de incluir un apartado de **juegos** interactivos para fomentar el aprendizaje.
 
 🔗 **Demo en producción**: [https://pinolito.vercel.app/](https://pinolito.vercel.app/)
 
@@ -45,9 +45,85 @@ src/
 └── services/           # Conexión con Supabase
 ```
 
+## Estructura General
+
+```mermaid
+graph TB
+    App["App.jsx - Router Principal"]
+    NavBar["Navbar - Navegación Global"]
+    Footer["Footer - Pie de Página"]
+    
+    subgraph "Características Principales"
+        HomePage["HomePage - Página de Inicio"]
+        DepartmentsPage["DepartmentsPage - Lista de Departamentos"]
+        DepartmentDetails["DepartmentDetails - Vista de Departamento"]
+        MunicipalityPage["MunicipalityPage - Vista de Municipio"]
+        GamePage["GamePage - Juegos Interactivos"]
+        CalendarPage["CalendarPage - Calendario de Eventos"]
+    end
+    
+    subgraph "Sistema de Contenido Cultural"
+        HistoriaDetail["HistoriaDetail - Contenido Histórico"]
+        TurismoDetail["TurismoDetail - Información Turística"]
+        GastronomiaDetail["GastronomiaDetail - Cultura Gastronómica"]
+        TradicionesDetail["TradicionesDetail - Tradiciones"]
+        SociedadDetail["SociedadDetail - Información Social"]
+    end
+    
+    App --> NavBar
+    App --> HomePage
+    App --> DepartmentsPage
+    App --> DepartmentDetails
+    App --> MunicipalityPage
+    App --> GamePage
+    App --> CalendarPage
+    App --> Footer
+    
+    DepartmentDetails --> HistoriaDetail
+    DepartmentDetails --> TurismoDetail
+    DepartmentDetails --> GastronomiaDetail
+    DepartmentDetails --> TradicionesDetail
+    DepartmentDetails --> SociedadDetail
+```
+
+
+
+# Estructura de Rutas de la Aplicación
+```mermaid
+graph LR
+    Root["/"]
+    Departments["/department"]
+    DeptDetail["/department/:ciudad"]
+    Municipality["/department/:departmentSlug/municipios/:municipioSlug"]
+    
+    subgraph "Rutas Culturales"
+        Historia["/department/:departmentSlug/historia/:slug"]
+        Lugares["/department/:departmentSlug/lugares/:slug"]
+        Comida["/department/:departmentSlug/comida/:slug"]
+        Tradiciones["/department/:departmentSlug/artes_y_tradiciones/:slug"]
+        Sociedad["/department/:departmentSlug/gente_y_sociedad/:slug"]
+    end
+    
+    subgraph "Funcionalidades Adicionales"
+        Games["/games"]
+        Calendar["/calendar"]
+    end
+    
+    Root --> HomePage
+    Departments --> DepartmentsPage
+    DeptDetail --> DepartmentDetails
+    Municipality --> MunicipalityPage
+    Historia --> HistoriaDetail
+    Lugares --> TurismoDetail
+    Comida --> GastronomiaDetail
+    Tradiciones --> TradicionesDetail
+    Sociedad --> SociedadDetail
+    Games --> GamePage
+    Calendar --> CalendarPage
+```
+
 
 ---
-
 
 ## 🌟 Funcionalidades
 
