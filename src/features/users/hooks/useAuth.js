@@ -13,9 +13,18 @@ export function useAuth() {
     return !error
   }
 
-  const register = async (email, password) => {
+  const register = async (email, password, firstName, lastName) => {
     setLoading(true)
-    const { error } = await supabase.auth.signUp({ email, password })
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          first_name: firstName,
+          last_name: lastName
+        }
+      }
+    })
     setLoading(false)
     if (error) setError(error.message)
     return !error
