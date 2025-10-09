@@ -25,42 +25,6 @@
       "slug": "managua",
       "coords": [12.1364, -86.2514],
       "descripcion": "Ciudad vibrante con vida cultural activa y centros históricos."
-    },
-    {
-      "nombre": "Tipitapa",
-      "slug": "tipitapa",
-      "coords": [12.2811, -86.0914],
-      "descripcion": "Reconocido por sus festivales locales y actividades agrícolas tradicionales."
-    },
-    {
-      "nombre": "Ticuantepe",
-      "slug": "ticuantepe",
-      "coords": [12.0739, -86.2936],
-      "descripcion": "Famoso por su producción de flores y clima agradable en las colinas."
-    },
-    {
-      "nombre": "Mateare",
-      "slug": "mateare",
-      "coords": [12.2333, -86.4167],
-      "descripcion": "Destaca por sus artesanías y tradiciones comunitarias."
-    },
-    {
-      "nombre": "Ciudad Sandino",
-      "slug": "ciudad-sandino",
-      "coords": [12.1847, -86.4000],
-      "descripcion": "Conocida por su energía juvenil y barrios con fuerte identidad local."
-    },
-    {
-      "nombre": "San Rafael del Sur",
-      "slug": "san-rafael-del-sur",
-      "coords": [11.9333, -86.4333],
-      "descripcion": "Famoso por sus playas y festividades costeras."
-    },
-    {
-      "nombre": "El Crucero",
-      "slug": "el-crucero",
-      "coords": [12.0333, -86.2500],
-      "descripcion": "Municipio montañoso con vistas panorámicas y clima fresco."
     }
   ]
 }
