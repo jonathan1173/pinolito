@@ -18,6 +18,13 @@ import TurismoDetail from "./features/departments/pages/culture/TurismoDetail/Tu
 import TradicionesDetail from "./features/departments/pages/culture/TradicionesDetail/TradicionesDetail";
 import GastronomiaDetail from "./features/departments/pages/culture/GastronomiaDetail/GastronomiaDetail";
 
+// usuario
+import LoginPage from './features/users/pages/LoginPage'
+import RegisterPage from './features/users/pages/RegisterPage'
+import DashboardPage from './features/users/pages/DashboardPage'
+
+
+
 // hooks
 import ScrollToTop from "./shared/hooks/ScrollToTop";
 
@@ -28,6 +35,12 @@ export default function App() {
         <ScrollToTop />
         <Navbar />
         <Routes>
+          {/* usuario */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+
+          {/* Rutas principales */}
           <Route path="/" element={<HomePage />} />
           <Route path="/games" element={<GamePage />} />
           <Route path="/calendar" element={<CalendarPage />} />
