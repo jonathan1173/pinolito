@@ -23,6 +23,10 @@ import LoginPage from "./features/users/pages/LoginPage";
 import RegisterPage from "./features/users/pages/RegisterPage";
 import DashboardPage from "./features/users/pages/DashboardPage";
 
+// publicaciones 
+import ComunidadFeed from "./features/community/pages/ComunidadFeed";
+
+
 // hooks
 import ScrollToTop from "./shared/hooks/ScrollToTop";
 
@@ -75,6 +79,8 @@ export default function App() {
               path="/department/:departmentSlug/gente_y_sociedad/:slug"
               element={<SociedadDetail />}
             />
+
+            <Route path="/community" element={<ComunidadFeed />} />
           </Routes>
         </div>
         <Footer />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Home, Calendar, Gamepad2, Menu, X, User } from "lucide-react";
+import { Home, Calendar, Gamepad2, Menu, X, Users } from "lucide-react";
 import { supabase } from "../../services/supabaseClient";
 
 export function Navbar() {
@@ -12,6 +12,7 @@ export function Navbar() {
     { href: "/", label: "Inicio", icon: <Home size={18} /> },
     { href: "/department", label: "Departamentos", icon: <Calendar size={18} /> },
     { href: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
+    { href: "/community", label: "comunidad", icon: <Users size={18} /> },
   ];
 
   // ===============================
