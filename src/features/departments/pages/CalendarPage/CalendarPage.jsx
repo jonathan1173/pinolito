@@ -15,7 +15,7 @@ export default function CalendarPage() {
   };
 
   return (
-    <div className="min-h-screen bg-red-600">
+    <div>
       <Hero
         title={
           <>

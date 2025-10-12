@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Calendar, Sparkles } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import Hero from "../../../shared/components/Hero";
 import axios from "axios";
+import Map from "../../../shared/components/Map";
+import DepartmentCard from "../components/DepartmentCard"
 
 export default function DepartmentsPage() {
   const [ciudadesCreativas, setCiudadesCreativas] = useState([]);
@@ -38,11 +40,15 @@ export default function DepartmentsPage() {
       {/* Hero siempre visible */}
       <Hero
         title="¡Sumérgete en la Cultura!"
-        paragraph="Descubre la riqueza de Nicaragua con juegos que te harán aprender de forma divertida."
-        ctaLink="calendar"
+        paragraph="Descubre la riqueza de Nicaragua conociendo cada un de sus departamentos"
+        ctaLink="/calendar"
         ctaText="Ver Calendarios de Eventos"
         Icon={Calendar}
       />
+
+      <div className="mx-4 md:mx-20">
+        <Map mode="departamentos" />
+      </div>
 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
@@ -53,31 +59,7 @@ export default function DepartmentsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {ciudadesCreativas.map((ciudad) => (
-                <Link
-                  key={ciudad.id}
-                  to={`/department/${ciudad.slug}`}
-                  className="group bg-white rounded-lg shadow hover:shadow-xl overflow-hidden transition-all hover:-translate-y-2"
-                >
-                  <div className="relative">
-                    {/* importante usar imagen_url (de la DB) */}
-                    <img
-                      src={ciudad.imagen_url}
-                      alt={ciudad.nombre}
-                      loading="lazy" // 👈 mejora carga
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-500 to-gray-700 opacity-20 group-hover:opacity-30" />
-                  </div>
-
-                  <div className="p-4">
-                    <h2 className="text-xl font-bold group-hover:text-blue-600">
-                      {ciudad.nombre}
-                    </h2>
-                    <div className="mt-4 flex items-center space-x-4 text-sm text-gray-600">
-                      <Sparkles className="w-4 h-4 mr-1" /> 0 actividades
-                    </div>
-                  </div>
-                </Link>
+                  <DepartmentCard key={ciudad.id} ciudad={ciudad} />
               ))}
             </div>
           )}

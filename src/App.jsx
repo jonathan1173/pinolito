@@ -24,48 +24,48 @@ import ScrollToTop from "./shared/hooks/ScrollToTop";
 export default function App() {
   return (
     <Router>
-      <>
+      <div className="min-h-screen flex flex-col">
         <ScrollToTop />
         <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/games" element={<GamePage />} />
-          <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/department" element={<DepartmentsPage />} />
-          {/* detalles de los departamentos  */}
-          <Route path="/department/:ciudad" element={<DepartmentsDetails />} />
+        
+        {/* Contenido principal */}
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/games" element={<GamePage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/department" element={<DepartmentsPage />} />
+            <Route path="/department/:ciudad" element={<DepartmentsDetails />} />
+            <Route
+              path="/department/:departmentSlug/municipios/:municipioSlug"
+              element={<MunicipalityPage />}
+            />
+            <Route
+              path="/department/:departmentSlug/lugares/:slug"
+              element={<TurismoDetail tabla="lugares" />}
+            />
+            <Route
+              path="/department/:departmentSlug/historia/:slug"
+              element={<HistoriaDetail tabla="historia" />}
+            />
+            <Route
+              path="/department/:departmentSlug/comida/:slug"
+              element={<GastronomiaDetail tabla="comida" />}
+            />
+            <Route
+              path="/department/:departmentSlug/artes_y_tradiciones/:slug"
+              element={<TradicionesDetail tabla="artes_y_tradiciones" />}
+            />
+            <Route
+              path="/department/:departmentSlug/gente_y_sociedad/:slug"
+              element={<SociedadDetail />}
+            />
+          </Routes>
+        </main>
 
-          {/* mostrar los municipios */}
-          <Route
-            path="/department/:departmentSlug/municipios/:municipioSlug"
-            element={<MunicipalityPage />}
-          />
-
-          {/* detalles de la cultura  */}
-          <Route
-            path="/department/:departmentSlug/lugares/:slug"
-            element={<TurismoDetail tabla="lugares" />}
-          />
-
-          <Route
-            path="/department/:departmentSlug/historia/:slug"
-            element={<HistoriaDetail tabla="historia" />}
-          />
-          <Route
-            path="/department/:departmentSlug/comida/:slug"
-            element={<GastronomiaDetail tabla="comida" />}
-          />
-          <Route
-            path="/department/:departmentSlug/artes_y_tradiciones/:slug"
-            element={<TradicionesDetail tabla="artes_y_tradiciones" />}
-          />
-          <Route
-            path="/department/:departmentSlug/gente_y_sociedad/:slug"
-            element={<SociedadDetail />}
-          />
-        </Routes>
+        {/* Footer */}
         <Footer />
-      </>
+      </div>
     </Router>
   );
 }
