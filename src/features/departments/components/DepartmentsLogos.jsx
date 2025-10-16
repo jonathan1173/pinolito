@@ -52,6 +52,7 @@ export default function DepartmentAchievements({ departamentoId, municipioId }) 
               <p className="text-sm text-gray-700">{rec.anio}</p>
               <p className="text-sm text-gray-600">
                 {rec.institucion_otorgante}
+               
               </p>
             </div>
           ))}

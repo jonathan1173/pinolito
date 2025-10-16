@@ -5,11 +5,11 @@ import {
   Cell,
   Tooltip,
   Legend,
-  ResponsiveContainer,  
+  ResponsiveContainer,
 } from "recharts";
 import { supabase } from "../../../services/supabaseClient";
 import { motion } from "framer-motion";
-import { Info } from "lucide-react";
+import { Info, EqualApproximately } from "lucide-react";
 import { div } from "framer-motion/client";
 
 export default function DepartmentSkills({ departamentoId }) {
@@ -18,7 +18,15 @@ export default function DepartmentSkills({ departamentoId }) {
   const [selectedSkill, setSelectedSkill] = useState(null);
 
   // Colores sólidos y fáciles de distinguir
-  const COLORS = ["#2563EB", "#16A34A", "#CA8A04", "#92400E", "#DC2626"];
+  const COLORS = [
+    "#1D4ED8", // Azul
+    "#059669", // Verde
+    "#D97706", // Naranja
+    "#B91C1C", // Rojo
+    "#7C3AED", // Violeta
+    "#0EA5E9", // Celeste
+    "#BE18FF", // Rosa
+  ];
 
   useEffect(() => {
     async function fetchHabilidades() {
@@ -103,7 +111,6 @@ export default function DepartmentSkills({ departamentoId }) {
                   `${props.payload.name}`,
                 ]}
               />
-              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -129,8 +136,9 @@ export default function DepartmentSkills({ departamentoId }) {
             <p className="mt-3 text-sm text-gray-600 italic">
               Tipo: {selectedSkill.tipo || "No especificado"}
             </p>
-            <p className="mt-1 text-sm text-[#39c2ff] font-medium">
-              Trabajadores: {selectedSkill.value?.toLocaleString()}
+            <p className="mt-1 text-sm text-[#39c2ff] font-medium inline-flex items-center gap-1">
+              Trabajadores <EqualApproximately />{" "}
+              {selectedSkill.value?.toLocaleString()}
             </p>
           </>
         ) : (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, Clock } from "lucide-react";
 import axios from "axios";
 
 export default function RecentExperiences({ departamentoId }) {
@@ -10,7 +10,7 @@ export default function RecentExperiences({ departamentoId }) {
     const fetchExperiencias = async () => {
       try {
         const { data } = await axios.get(
-          `https://vifqhfbtudcqbnsqwsqg.supabase.co/rest/v1/experiencias`,
+          `https://ctypwfgfbgylgfdnrmwl.supabase.co/rest/v1/experiencias`,
           {
             headers: {
               apikey: import.meta.env.VITE_SUPABASE_KEY,
@@ -63,7 +63,6 @@ export default function RecentExperiences({ departamentoId }) {
                   />
                 )}
                 <h3 className="text-lg font-bold mb-2">{exp.nombre}</h3>
-                <p className="text-sm text-gray-600 mb-2">{exp.descripcion}</p>
                 <div className="flex items-center space-x-4 text-sm text-gray-600 mb-2">
                   {exp.fecha && (
                     <span className="flex items-center">
@@ -72,7 +71,7 @@ export default function RecentExperiences({ departamentoId }) {
                   )}
                   {exp.direccion && (
                     <span className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-1" /> {exp.direccion}
+                      <Clock className="w-4 h-4 mr-1" /> {exp.hora}
                     </span>
                   )}
                 </div>
