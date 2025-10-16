@@ -17,15 +17,6 @@ export default function CultureHero({ item }) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-
-        {/* Botón regresar */}
-        <button
-          onClick={handleGoBack}
-          className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 bg-black/50 text-white text-sm rounded-lg hover:bg-black/70 transition"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Regresar
-        </button>
       </div>
 
       <div className="relative h-full flex items-end">
