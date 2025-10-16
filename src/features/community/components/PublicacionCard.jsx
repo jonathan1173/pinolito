@@ -5,7 +5,7 @@ export default function PublicacionCard({ publicacion, usuarioId, onComentar }) 
   const { likes, liked, toggleLike } = useLikes(publicacion.id, usuarioId);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4 shadow-sm">
+    <div className="bg-white  border-1 border-gray-500 rounded-lg p-4 mb-4 shadow-2xl">
       <p className="text-gray-800 mb-2">{publicacion.contenido}</p>
 
       {publicacion.imagen_url && (

@@ -9,7 +9,7 @@ export default function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const success = await login(email, password)
-    if (success) window.location.href = '/dashboard'
+    if (success) window.location.href = '/community'
   }
 
   return (

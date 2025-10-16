@@ -11,7 +11,7 @@ import {
   Play,
   Puzzle,
   MapPin,
-  RectangleGoggles
+  RectangleGoggles,
 } from "lucide-react";
 import Hero from "../../../shared/components/Hero";
 
@@ -54,71 +54,6 @@ export default function GamePage() {
       jugadores: "1 jugador",
       categoria: "Geografía",
       progreso: 30,
-      completado: false,
-    },
-    {
-      id: 4,
-      titulo: "Sabores de Nicaragua",
-      descripcion:
-        "Reconoce platos típicos, ingredientes tradicionales y aprende sobre nuestra rica gastronomía.",
-      icono: Utensils,
-      dificultad: "Fácil",
-      tiempo: "6-10 min",
-      jugadores: "1 jugador",
-      categoria: "Gastronomía",
-      progreso: 0,
-      completado: false,
-    },
-    {
-      id: 5,
-      titulo: "Ritmos y Tradiciones",
-      descripcion:
-        "Descubre instrumentos tradicionales, bailes folclóricos y música típica de cada región.",
-      icono: Music,
-      dificultad: "Intermedio",
-      tiempo: "10-15 min",
-      jugadores: "1 jugador",
-      categoria: "Música",
-      progreso: 45,
-      completado: false,
-    },
-    {
-      id: 6,
-      titulo: "Personajes Ilustres",
-      descripcion:
-        "Conoce a los grandes personajes que han marcado la historia y cultura de Nicaragua.",
-      icono: Users,
-      dificultad: "Avanzado",
-      tiempo: "15-20 min",
-      jugadores: "1 jugador",
-      categoria: "Biografías",
-      progreso: 60,
-      completado: false,
-    },
-    {
-      id: 7,
-      titulo: "Rompecabezas Artesanal",
-      descripcion:
-        "Arma hermosas obras de arte tradicionales nicaragüenses pieza por pieza y aprende sobre su historia.",
-      icono: Puzzle,
-      dificultad: "Intermedio",
-      tiempo: "15-25 min",
-      jugadores: "1 jugador",
-      categoria: "Artesanías",
-      progreso: 20,
-      completado: false,
-    },
-    {
-      id: 8,
-      titulo: "Identifica este Lugar",
-      descripcion:
-        "Observa fotografías de lugares emblemáticos de Nicaragua y demuestra cuánto conoces tu país.",
-      icono: MapPin,
-      dificultad: "Intermedio",
-      tiempo: "8-15 min",
-      jugadores: "1-4 jugadores",
-      categoria: "Geografía",
-      progreso: 0,
       completado: false,
     },
   ];
@@ -185,22 +120,6 @@ export default function GamePage() {
                     <Users className="w-3 h-3 mr-1" /> {juego.jugadores}
                   </span>
                 </div>
-
-                {/* Progreso */}
-                {juego.progreso > 0 && (
-                  <div className="mb-4">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-gray-500">Progreso</span>
-                      <span className="font-medium">{juego.progreso}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div
-                        className="bg-blue-600 h-2 rounded-full"
-                        style={{ width: `${juego.progreso}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                )}
 
                 {/* Botón */}
                 <a

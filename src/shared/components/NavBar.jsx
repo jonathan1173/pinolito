@@ -1,6 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Home, Calendar, Gamepad2, Menu, X, Users } from "lucide-react";
+import {
+  Home,
+  Calendar,
+  Gamepad2,
+  Menu,
+  X,
+  Users,
+  Map,
+  LogIn,
+  LogOut,
+  UserPlus,
+  UsersRound,
+} from "lucide-react"; // <-- añadimos íconos
 import { supabase } from "../../services/supabaseClient";
 
 export function Navbar() {
@@ -10,9 +22,8 @@ export function Navbar() {
 
   const links = [
     { href: "/", label: "Inicio", icon: <Home size={18} /> },
-    { href: "/department", label: "Departamentos", icon: <Calendar size={18} /> },
+    { href: "/department", label: "Departamentos", icon: <Map size={18} /> },
     { href: "/games", label: "Juegos", icon: <Gamepad2 size={18} /> },
-    { href: "/community", label: "comunidad", icon: <Users size={18} /> },
   ];
 
   // ===============================
@@ -25,7 +36,6 @@ export function Navbar() {
     };
     fetchUser();
 
-    // Suscribirse a cambios de sesión
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
@@ -38,7 +48,7 @@ export function Navbar() {
   // ===============================
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    navigate("/"); // redirige al inicio
+    navigate("/");
   };
 
   const NavbarLink = ({ href, icon, label, onClick }) => (
@@ -70,32 +80,36 @@ export function Navbar() {
             <>
               <Link
                 to="/login"
-                className="block px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
+                className="flex items-center gap-2 px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
                 onClick={() => setOpen(false)}
               >
+                <LogIn size={18} />
                 Login
               </Link>
               <Link
                 to="/register"
-                className="block px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
+                className="flex items-center gap-2 px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
                 onClick={() => setOpen(false)}
               >
+                <UserPlus size={18} />
                 Registro
               </Link>
             </>
           ) : (
             <>
               <Link
-                to="/dashboard"
-                className="block px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
+                to="/community"
+                className="flex items-center gap-2 px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
                 onClick={() => setOpen(false)}
               >
-                Dashboard
+                <UsersRound size={18} />
+                Comunidad
               </Link>
               <button
                 onClick={handleLogout}
-                className="w-full text-left px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
+                className="flex items-center gap-2 w-full text-left px-4 py-2 text-stone-600 rounded-lg hover:text-blue-700 hover:bg-blue-50"
               >
+                <LogOut size={18} />
                 Logout
               </button>
             </>
@@ -109,16 +123,9 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link
-            to="/"
-            className="flex items-center space-x-1 group h-full px-1 py-1"
-          >
+          <Link to="/" className="flex items-center space-x-1 group h-full px-1 py-1">
             <div className="flex h-6 items-center justify-center transition-transform">
-              <img
-                src="/Logo.png"
-                alt="Logo"
-                className="h-full w-auto object-cover"
-              />
+              <img src="/Logo.png" alt="Logo" className="h-full w-auto object-cover" />
               <span className="ml-2 select-none">
                 <b className="text-2xl ">PINOLITO</b>
               </span>
@@ -139,33 +146,37 @@ export function Navbar() {
                   to="/login"
                   className="hidden sm:flex items-center gap-2 px-3 py-1 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
                 >
+                  <LogIn size={18} />
                   Login
                 </Link>
                 <Link
                   to="/register"
                   className="hidden sm:flex items-center gap-2 px-3 py-1 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
                 >
+                  <UserPlus size={18} />
                   Registro
                 </Link>
               </>
             ) : (
               <>
                 <Link
-                  to="/dashboard"
+                  to="/community"
                   className="hidden sm:flex items-center gap-2 px-3 py-1 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
                 >
-                  Dashboard
+                  <UsersRound size={18} />
+                  Comunidad
                 </Link>
                 <button
                   onClick={handleLogout}
                   className="hidden sm:flex items-center gap-2 px-3 py-1 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
                 >
+                  <LogOut size={18} />
                   Logout
                 </button>
               </>
             )}
 
-            {/* Botón hamburguesa para móvil */}
+            {/* Botón hamburguesa */}
             <button
               className="lg:hidden p-2 text-stone-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg"
               onClick={() => setOpen(!open)}
