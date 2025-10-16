@@ -14,7 +14,6 @@ export default function EventCard({ evento }) {
 
       <div className="relative flex-1 flex flex-col justify-end text-white">
         <h4 className="font-semibold text-sm">{evento.nombre}</h4>
-        <p className="text-xs flex items-center">{evento.descripcion}</p>
         <p className="text-xs flex items-center">
           <Clock className="w-3 h-3 mr-1" />
           {evento.hora}
@@ -23,10 +22,7 @@ export default function EventCard({ evento }) {
           <MapPin className="w-3 h-3 mr-1" />
           {evento.ubicacion}
         </p>
-        <p className="text-xs flex items-center">
-          <Users className="w-3 h-3 mr-1" />
-          {evento.participantes || 0} personas
-        </p>
+   
       </div>
     </div>
   );

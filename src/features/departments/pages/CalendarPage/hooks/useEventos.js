@@ -11,7 +11,7 @@ export default function useEventos() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    "https://vifqhfbtudcqbnsqwsqg.supabase.co/rest/v1/experiencias",
+                    "https://ctypwfgfbgylgfdnrmwl.supabase.co/rest/v1/experiencias",
                     {
                         headers: {
                             apikey: import.meta.env.VITE_SUPABASE_KEY,
