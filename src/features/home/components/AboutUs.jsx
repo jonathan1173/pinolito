@@ -8,10 +8,12 @@ export default function HeroSection() {
       <div className="z-40 w-full lg:w-1/2 px-6 lg:px-12 py-12 space-y-6 text-center lg:text-left">
         <h1 className="text-4xl lg:text-6xl font-bold">Sobre Nosotros</h1>
         <p className="text-base lg:text-lg text-gray-600 max-w-md mx-auto lg:mx-0">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
-          perspiciatis praesentium velit incidunt, nisi deleniti et esse
-          accusantium ab eaque excepturi deserunt vitae illo vero nostrum id,
-          consectetur quidem natus.
+          Pinolito es una plataforma digital dedicada a preservar y difundir la
+          riqueza cultural de Nicaragua. presentamos los tesoros de nuestra
+          identidad cultural la gastronomía típica y la música folclórica. Cada
+          elemento de Pinolito está diseñado para que las historias, sabores y
+          tradiciones que han pasado de generación en generación continúen vivas
+          en el corazón de cada nicaragüense y sean conocidas por el mundo
         </p>
         <button className="px-6 py-3 bg-[#39C2FF] text-white rounded-lg shadow-md hover:bg-blue-700 transition">
           Call to Action
@@ -21,11 +23,14 @@ export default function HeroSection() {
       {/* Imagen de fondo en mobile */}
       <div
         className="block lg:hidden w-full h-64 bg-cover bg-center px-[100px]  shadow-xl mt-6"
-        style={{ backgroundImage: "url('https://www.infobae.com/resizer/v2/CLH6ILNDHNDJ7JBQWDLMIVVHVA.jpg?auth=11bcbc3eaef6bd6bab94d8c35cc46b2a58d8db2852a711092c8a151fc07ab240&smart=true&width=992&height=558&quality=85')" }}
+        style={{
+          backgroundImage:
+            "url('https://www.infobae.com/resizer/v2/CLH6ILNDHNDJ7JBQWDLMIVVHVA.jpg?auth=11bcbc3eaef6bd6bab94d8c35cc46b2a58d8db2852a711092c8a151fc07ab240&smart=true&width=992&height=558&quality=85')",
+        }}
       ></div>
 
       {/* Imágenes flotantes solo en desktop */}
-      <div className="hidden lg:block relative w-full lg:w-1/2 lg:h-[500px]"> 
+      <div className="hidden lg:block relative w-full lg:w-1/2 lg:h-[500px]">
         {/* Imagen superior izquierda */}
         <figure className="absolute top-16 right-60 w-80 z-10">
           <motion.img
