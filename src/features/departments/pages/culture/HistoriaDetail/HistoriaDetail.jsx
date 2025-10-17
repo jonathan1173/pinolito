@@ -4,6 +4,7 @@ import { useDetalle } from "../../../hooks/useDetalle";
 import { useParams } from "react-router-dom";
 import { Calendar, User, BookOpen, Clock, Scroll } from "lucide-react";
 import CultureHero from "../CultureHero";
+import YouTubePlayer from "../Video";
 
 export default function HistoriaDetail() {
   const { slug } = useParams();
@@ -102,6 +103,10 @@ export default function HistoriaDetail() {
             <p className="text-gray-800">{item.informacion_fuente}</p>
           </div>
         </aside>
+      </div>
+
+      <div className="px-4 sm:px-8 md:px-16 py-6">
+        <YouTubePlayer url={item.video} />
       </div>
     </div>
   );

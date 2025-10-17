@@ -11,6 +11,7 @@ import {
   Flame,
 } from "lucide-react";
 import CultureHero from "../CultureHero";
+import YouTubePlayer from "../Video";
 
 export default function GastronomiaDetail() {
   const { slug } = useParams();
@@ -102,7 +103,8 @@ export default function GastronomiaDetail() {
                 <Leaf className="w-6 h-6" /> Ingredientes Principales
               </h2>
               <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                {item.ingredientes || "Sin información de ingredientes disponible."}
+                {item.ingredientes ||
+                  "Sin información de ingredientes disponible."}
               </p>
             </div>
 
@@ -169,6 +171,10 @@ export default function GastronomiaDetail() {
           </div>
         </div>
       </div>
+
+        <div className="px-4 sm:px-8 md:px-16 py-6">
+          <YouTubePlayer url={item.video} />
+        </div>
     </div>
   );
 }

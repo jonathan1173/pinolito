@@ -1,31 +1,22 @@
 import React, { useEffect, useState } from "react";
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import ReactECharts from "echarts-for-react";
 import { supabase } from "../../../services/supabaseClient";
 import { motion } from "framer-motion";
 import { Info, EqualApproximately } from "lucide-react";
-import { div } from "framer-motion/client";
 
 export default function DepartmentSkills({ departamentoId }) {
   const [habilidades, setHabilidades] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedSkill, setSelectedSkill] = useState(null);
 
-  // Colores sólidos y fáciles de distinguir
   const COLORS = [
-    "#1D4ED8", // Azul
-    "#059669", // Verde
-    "#D97706", // Naranja
-    "#B91C1C", // Rojo
-    "#7C3AED", // Violeta
-    "#0EA5E9", // Celeste
-    "#BE18FF", // Rosa
+    "#ff6b6b",
+    "#6bc1ff",
+    "#ffd56b",
+    "#6bff95",
+    "#d96bff",
+    "#ff6fc1",
+    "#42e3ff",
   ];
 
   useEffect(() => {
@@ -54,7 +45,6 @@ export default function DepartmentSkills({ departamentoId }) {
       <p className="text-center py-3 text-[#39C2FF]">Cargando habilidades...</p>
     );
 
-  // Agrupado por nombre
   const groupedData = habilidades.reduce((acc, h) => {
     const existing = acc.find((item) => item.name === h.nombre);
     if (existing) {
@@ -70,53 +60,69 @@ export default function DepartmentSkills({ departamentoId }) {
     return acc;
   }, []);
 
-  const totalTrabajadores = groupedData.reduce((sum, h) => sum + h.value, 0);
-  const chartData = groupedData.map((h) => ({
-    ...h,
-    percentage: ((h.value / totalTrabajadores) * 100).toFixed(1),
-  }));
+  const chartData = groupedData.map((h) => ({ ...h }));
+
+  const chartOption = {
+    backgroundColor: "#ffffff",
+    tooltip: {
+      trigger: "item",
+      formatter: (params) =>
+        `${params.name}: ${params.value.toLocaleString()} empleados (${params.percent}%)`,
+    },
+    legend: {
+      top: "top",
+      type: "scroll",
+      textStyle: { color: "#000", fontSize: 12 },
+      data: chartData.map((d) => d.name),
+    },
+    series: [
+      {
+        name: "Habilidades",
+        type: "pie",
+        radius: ["40%", "70%"],
+        label: { show: false }, // desactivado
+        labelLine: { show: false },
+        emphasis: {
+          scale: true,
+          scaleSize: 10,
+          itemStyle: { shadowBlur: 20, shadowColor: "rgba(0,0,0,0.2)" },
+        },
+        data: chartData.map((item, index) => ({
+          value: item.value,
+          name: item.name,
+          itemStyle: { color: COLORS[index % COLORS.length] },
+        })),
+        animationType: "scale",
+        animationEasing: "elasticOut",
+        animationDelay: (idx) => idx * 150,
+      },
+    ],
+  };
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Gráfico */}
       <motion.div
-        className="flex flex-col h-80 bg-white rounded-xl shadow-md border border-gray-200"
-        whileHover={{ scale: 1.01 }}
+        className="flex flex-col h-80 rounded-xl shadow-xl border border-gray-200 cursor-pointer bg-white"
+        whileHover={{ scale: 1.02 }}
       >
-        <h2 className="text-lg text-[#2c2c2c] font-semibold my-3 text-center">
+        <h2 className="text-lg text-black font-semibold my-3 text-center">
           Sectores Económicos
         </h2>
         <div className="flex-1 w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={chartData}
-                dataKey="value"
-                nameKey="name"
-                outerRadius="70%"
-                onClick={(data) => setSelectedSkill(data)}
-              >
-                {chartData.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                    stroke="#ffffff"
-                    strokeWidth={2}
-                  />
-                ))}
-              </Pie>
-              <Tooltip
-                formatter={(value, name, props) => [
-                  `${value.toLocaleString()} empleados`,
-                  `${props.payload.name}`,
-                ]}
-              />
-            </PieChart>
-          </ResponsiveContainer>
+          <ReactECharts
+            option={chartOption}
+            style={{ height: "100%", width: "100%" }}
+            onEvents={{
+              click: (params) => {
+                setSelectedSkill(chartData.find(d => d.name === params.name));
+              },
+            }}
+          />
         </div>
       </motion.div>
 
-      {/* Imagen o descripción */}
+      {/* Detalles debajo */}
       <motion.div
         className="flex flex-col h-80 bg-white rounded-xl shadow-md p-4 overflow-y-auto"
         initial={{ opacity: 0 }}
@@ -125,10 +131,8 @@ export default function DepartmentSkills({ departamentoId }) {
         {selectedSkill ? (
           <>
             <div className="flex items-center gap-2 mb-3">
-              <Info className="text-[#2c2c2c] w-5 h-5" />
-              <h3 className="text-lg font-bold text-[#2c2c2c]">
-                {selectedSkill.name}
-              </h3>
+              <Info className="text-black w-5 h-5" />
+              <h3 className="text-lg font-bold text-black">{selectedSkill.name}</h3>
             </div>
             <p className="text-gray-700 leading-relaxed">
               {selectedSkill.descripcion || "Sin descripción disponible."}
@@ -137,14 +141,13 @@ export default function DepartmentSkills({ departamentoId }) {
               Tipo: {selectedSkill.tipo || "No especificado"}
             </p>
             <p className="mt-1 text-sm text-[#39c2ff] font-medium inline-flex items-center gap-1">
-              Trabajadores <EqualApproximately />{" "}
-              {selectedSkill.value?.toLocaleString()}
+              Trabajadores <EqualApproximately /> {selectedSkill.value?.toLocaleString()}
             </p>
           </>
         ) : (
           <div className="flex flex-col justify-center items-center h-full text-center gap-2 p-4">
-            <Info className="w-5 h-5 text-[#2c2c2c]" />
-            <span className="text-lg font-medium text-[#2c2c2c]">
+            <Info className="w-5 h-5 text-black" />
+            <span className="text-lg font-medium text-black">
               Toca la gráfica para obtener más información
             </span>
           </div>
