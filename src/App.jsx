@@ -26,6 +26,11 @@ import DashboardPage from "./features/users/pages/DashboardPage";
 // publicaciones 
 import ComunidadFeed from "./features/community/pages/ComunidadFeed";
 
+// juegos 
+import GeografiaNicaragua from "./features/games/components/geografia-nicaragua";
+import MemoriaCultural from "./features/games/components/memoria-cultural";
+import TriviaHistorica from "./features/games/components/trivia-historica";
+
 
 // hooks
 import ScrollToTop from "./shared/hooks/ScrollToTop";
@@ -81,6 +86,10 @@ export default function App() {
             />
 
             <Route path="/community" element={<ComunidadFeed />} />
+
+            <Route path="/juegos/3" element={<GeografiaNicaragua />} />
+            <Route path="/juegos/2" element={<MemoriaCultural />} />
+            <Route path="/juegos/1" element={<TriviaHistorica />} />
           </Routes>
         </div>
         <Footer />
