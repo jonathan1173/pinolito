@@ -19,12 +19,24 @@
       "descripcion": "Nagarote, famoso por su arquitectura colonial..."
     }
   ],
-"managua": [
+  "managua": [
     {
       "nombre": "Managua",
       "slug": "managua",
       "coords": [12.1364, -86.2514],
       "descripcion": "Ciudad vibrante con vida cultural activa y centros históricos."
+    },
+    {
+      "nombre": "Tipitapa",
+      "slug": "tipitapa",
+      "coords": [12.1973, -86.0975],
+      "descripcion": "Tipitapa, una ciudad en crecimiento industrial con paisajes naturales cercanos al lago Xolotlán."
+    },
+    {
+      "nombre": "Ciudad Sandino",
+      "slug": "ciudad-sandino",
+      "coords": [12.1589, -86.3442],
+      "descripcion": "Ciudad Sandino, un importante municipio residencial e industrial del departamento de Managua."
     }
   ]
 }
