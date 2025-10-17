@@ -1,12 +1,34 @@
 {
   "Managua": {
-    "coords": [12.1364, -86.2514],
+    "coords": [
+      12.1364,
+      -86.2514
+    ],
     "descripcion": "Managua, capital de Nicaragua, combina historia reciente y modernidad a orillas del lago Xolotlán.",
     "slug": "managua"
   },
   "León": {
-    "coords": [12.4356, -86.8797],
+    "coords": [
+      12.4356,
+      -86.8797
+    ],
     "descripcion": "León, antigua capital, cuna de la universidad más antigua del país y de gran tradición cultural y religiosa.",
     "slug": "leon"
+  },
+  "Masaya": {
+    "coords": [
+      11.9744,
+      -86.0942
+    ],
+    "descripcion": "Masaya, conocida como la Ciudad de las Flores, destaca por su artesanía, su volcán activo y su rica tradición cultural.",
+    "slug": "masaya"
+  },
+  "Granada": {
+    "coords": [
+      11.9339,
+      -85.9560
+    ],
+    "descripcion": "Granada, la Gran Sultana, es una de las ciudades más antiguas de América, famosa por su arquitectura colonial y el lago Cocibolca.",
+    "slug": "granada"
   }
 }
