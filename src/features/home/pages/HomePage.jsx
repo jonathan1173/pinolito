@@ -14,7 +14,7 @@ export default function HomePage() {
       <div className="mx-4 md:mx-20">
         <Map mode="departamentos" />
       </div>
-      <Details />
+      {/* <Details /> */}
       <HorizontalScrollSection />
         {/* <Vision /> */}
     </div>

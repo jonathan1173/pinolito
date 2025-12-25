@@ -76,9 +76,6 @@ export default function GamePage() {
       <Hero
         title="¡Aprende Jugando!"
         paragraph="Descubre la cultura de Nicaragua con desafíos y juegos interactivos."
-        ctaLink="https://ar-test-hvux.vercel.app/"
-        ctaText="Realidad Aumentada"
-        Icon={RectangleGoggles}
       />
 
       {/* Juegos */}
