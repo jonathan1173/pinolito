@@ -64,7 +64,7 @@ Además, incluye:
 ## 📂 Project Architecture
 
 Feature-based structure:
-```mermaid
+```
 src/
 ├── features/
 │   ├── home/          # Homepage
