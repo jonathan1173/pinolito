@@ -1,5 +1,6 @@
 
-![Hackathon Nicaragua 2025 – Certificado de Participación](CertificadoDeParticipacion.png)
+![Hackathon Nicaragua 2025 – Certificado de Participación](Certificado_HackathonNicaragua2025.png
+.png)
 
 # Pinolito – Hackathon Nicaragua 2025
 
