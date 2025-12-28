@@ -64,7 +64,7 @@ Además, incluye:
 ## 📂 Project Architecture
 
 Feature-based structure:
-
+```mermaid
 src/
 ├── features/
 │   ├── home/          # Homepage
@@ -73,7 +73,7 @@ src/
 ├── shared/
 │   └── components/    # Reusable components
 └── services/          # Supabase API integration
-
+```
 ---
 
 ### Application Routes
